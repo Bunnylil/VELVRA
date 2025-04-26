@@ -655,6 +655,14 @@ header h1 {
   max-height: 100%;
   object-fit: contain;
 }
+.product-image a {
+  display: block;
+  height: 100%;
+}
+
+.product-image:hover img {
+  transform: scale(1.05); /* Slightly enlarges the image */
+}
 
 .product-info {
   margin-top: auto;
