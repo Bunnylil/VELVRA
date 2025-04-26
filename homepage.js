@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let offerEndTime = localStorage.getItem(TIMER_KEY);
 
   if (!offerEndTime) {
-    // If not set, create a new one and store it
+    
     offerEndTime = new Date().getTime() + DEFAULT_DURATION;
     localStorage.setItem(TIMER_KEY, offerEndTime);
   } else {
@@ -188,8 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (distance <= 0) {
       timerElement.textContent = "Offer expired";
-      localStorage.removeItem(TIMER_KEY); // Optional: reset timer
-      return;
+      localStorage.removeItem(TIMER_KEY); 
     }
 
     const hours = String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, '0');
