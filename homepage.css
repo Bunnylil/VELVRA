@@ -886,3 +886,209 @@ h3 {
     max-height: 200px;
   }
 }
+
+.container2 {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 50px;
+  padding: 0 20px;
+}
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.95;
+}
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .hero-image-container {
+    height: 60vh;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    padding: 20px 0;
+  }
+
+  .hero-image-container {
+    height: 50vh;
+  }
+
+  .hero-video {
+    opacity: 1;
+  }
+}
+.footer {
+  background-color: #f0f0f0;
+  padding: 40px 20px;
+  color: #222;
+}
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.footer-section {
+  margin-bottom: 30px;
+  min-width: 200px;
+}
+
+.footer-section h3 {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+.footer-section ul {
+  list-style: none;
+}
+.footer-section ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+.footer-section ul li i {
+  margin-right: 10px;
+  width: 16px;
+}
+.footer-section a {
+  color: #222;
+  text-decoration: none;
+}
+.footer-section a:hover {
+  text-decoration: underline;
+  color: orange;
+}
+.newsletter {
+  flex: 0 0 300px;
+}
+.logo {
+  margin-bottom: 15px;
+}
+.logo h2 {
+  font-size: 18px;
+  font-weight: bold;
+}
+.ua-small-logo {
+  display: none;
+}
+.newsletter-text {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+.newsletter-form {
+  display: flex;
+  margin-bottom: 10px;
+}
+.email-input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  font-size: 14px;
+}
+.submit-btn {
+  background-color: #222;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.terms-text {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+.terms-text a {
+  color: #222;
+  text-decoration: underline;
+}
+.ua-logo-container {
+  margin-bottom: 20px;
+}
+.ua-logo {
+  width: 40px;
+  height: 40px;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+}
+.payment-methods {
+  margin-top: 20px;
+}
+.payment-icons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.payment-icon {
+  width: 40px;
+  height: 25px;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.payment-icons i:hover {
+  transform: scale(1.1);
+  color: orange;
+}
+.social-links li {
+  display: flex;
+  align-items: center;
+}
+.social-links i {
+  margin-right: 10px;
+}
+.footer-bottom {
+  max-width: 1200px;
+  margin: 20px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  text-align: left;
+  font-size: 12px;
+  color: #666;
+}
+.footer-bottom a {
+  color: #666;
+  text-decoration: none;
+}
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+}
