@@ -130,3 +130,74 @@ document.addEventListener('DOMContentLoaded', function() {
     
     videoElement.addEventListener('ended', changeVideo);
   });
+
+
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 768) {
+      document.querySelector('.nav-menu').classList.remove('active');
+    }
+  });
+
+  const videoMap = {
+    red: "images/vid1 (6).mp4",
+    black: "images/vid1 (1).mp4",
+    blue: "images/vid1 (3).mp4"
+  };
+
+  const colorOptions = document.querySelectorAll('.color-option');
+  const video = document.getElementById('productVideo2');
+  const videoSource = video.querySelector('source');
+
+  colorOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      // Remove 'selected' class from all
+      colorOptions.forEach(opt => opt.classList.remove('selected'));
+
+      // Add 'selected' to clicked
+      option.classList.add('selected');
+
+      // Get the color
+      const color = option.getAttribute('data-color');
+
+      // Change the video source
+      const newSrc = videoMap[color];
+      videoSource.setAttribute('src', newSrc);
+      video.load();
+    });
+  });
+
+  const TIMER_KEY = "offerEndTime";
+  const DEFAULT_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+
+  const timerElement = document.getElementById("discountTimer");
+
+  // Check if we already have a saved end time
+  let offerEndTime = localStorage.getItem(TIMER_KEY);
+
+  if (!offerEndTime) {
+    // If not set, create a new one and store it
+    offerEndTime = new Date().getTime() + DEFAULT_DURATION;
+    localStorage.setItem(TIMER_KEY, offerEndTime);
+  } else {
+    offerEndTime = parseInt(offerEndTime, 10);
+  }
+
+  const updateTimer = () => {
+    const now = new Date().getTime();
+    const distance = offerEndTime - now;
+
+    if (distance <= 0) {
+      timerElement.textContent = "Offer expired";
+      localStorage.removeItem(TIMER_KEY); // Optional: reset timer
+      return;
+    }
+
+    const hours = String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+    const minutes = String(Math.floor((distance / (1000 * 60)) % 60)).padStart(2, '0');
+    const seconds = String(Math.floor((distance / 1000) % 60)).padStart(2, '0');
+
+    timerElement.textContent = `Offer ends in: ${hours}:${minutes}:${seconds}`;
+  };
+
+  updateTimer();
+  setInterval(updateTimer, 1000);
