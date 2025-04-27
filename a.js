@@ -1,16 +1,99 @@
-// Color Selection Handler - Independent Script
 document.addEventListener('DOMContentLoaded', function() {
-    // DOM Elements
-    const colorOptions = document.querySelectorAll('.color-option');
-    const mainVideo = document.getElementById('mainVideo');
-    const productTitle = document.querySelector('.product-title');
-    const styleName = document.querySelector('.style-name');
-    const priceSection = document.querySelector('.price-section .total-price');
+    // Load product data from localStorage
+    const productData = JSON.parse(localStorage.getItem('currentProduct'));
     
-    // Color data with associated videos and prices
-    const colorData = {
-        'black': {
-            videos: [
+    if (productData) {
+        // Initialize the page with the product data
+        initializeProductPage(productData);
+    } else {
+        // Fallback to default product if none is selected
+        initializeDefaultProduct();
+    }
+
+    // Initialize all interactive components
+    initializeColorSelection();
+    initializeSizeSelection();
+    initializeCartAndFavorites();
+    initializeExpandableDetails();
+    initializeThumbnailClickHandlers();
+});
+
+function initializeProductPage(product) {
+    // Set basic product information
+    document.querySelector('.art-number').textContent = `ART ${product.id.toString().padStart(3, '0')}`;
+    document.querySelector('.product-title').textContent = product.name;
+    
+    // Set style and price (using first color by default)
+    const firstColor = product.colors[0];
+    const firstColorName = firstColor.charAt(0).toUpperCase() + firstColor.slice(1);
+    document.querySelector('.style-name').innerHTML = 
+        `${product.brand} ${product.model} <span class="style-price">$${product.price}</span>`;
+    document.querySelector('.total-price').textContent = `$ ${product.price}.-`;
+
+    // Set product details
+    const detailsContent = document.querySelector('#product-details .details-content');
+    detailsContent.innerHTML = '';
+    product.details.forEach(detail => {
+        detailsContent.innerHTML += `<p>${detail}</p>`;
+    });
+
+    // Initialize size options
+    const sizeOptionsContainer = document.querySelector('.size-options');
+    sizeOptionsContainer.innerHTML = '';
+    product.sizes.forEach(size => {
+        sizeOptionsContainer.innerHTML += `
+            <div class="size-option" data-size="${size}">${size}</div>
+        `;
+    });
+
+    // Initialize color options
+    const colorOptionsContainer = document.querySelector('.color-options');
+    colorOptionsContainer.innerHTML = '';
+    
+    product.colors.forEach((color, index) => {
+        const colorName = color.charAt(0).toUpperCase() + color.slice(1);
+        colorOptionsContainer.innerHTML += `
+            <div class="color-option ${color} ${index === 0 ? 'selected' : ''}" 
+                 data-color="${color}" 
+                 data-video-set="${index + 1}" 
+                 title="${colorName}">
+                <div class="color-swatch"></div>
+            </div>
+        `;
+    });
+
+    // Initialize video thumbnails for the first color
+    if (product.videosets && product.videosets[firstColor]) {
+        updateVideoThumbnails(product.videosets[firstColor]);
+    } else {
+        // Fallback to default videos if none specified
+        const defaultVideos = [
+            'videos/default1.mp4',
+            'videos/default2.mp4',
+            'videos/default3.mp4',
+            'videos/default4.mp4',
+            'videos/default5.mp4',
+            'videos/default6.mp4'
+        ];
+        updateVideoThumbnails(defaultVideos);
+    }
+
+    // Initialize size selection after creating the elements
+    initializeSizeSelection();
+}
+
+function initializeDefaultProduct() {
+    // Fallback product data if none is selected
+    const defaultProduct = {
+        id: '001',
+        name: 'Classic Derby',
+        brand: 'Vibram',
+        model: 'Gamble',
+        price: 95,
+        colors: ['black', 'brown'],
+        sizes: [38, 39, 40, 41, 42],
+        videosets: {
+            'black': [
                 'videos/vid1 (1).mp4',
                 'videos/vid1 (2).mp4',
                 'videos/vid1 (3).mp4',
@@ -18,209 +101,178 @@ document.addEventListener('DOMContentLoaded', function() {
                 'videos/vid1 (5).mp4',
                 'videos/vid1 (6).mp4'
             ],
-            name: 'Vibram Gamble Black',
-            price: '$95'
+            'brown': [
+                'videos/vid2 (1).mp4',
+                'videos/vid2 (2).mp4',
+                'videos/vid2 (3).mp4',
+                'videos/vid2 (4).mp4',
+                'videos/vid2 (5).mp4',
+                'videos/vid2 (6).mp4'
+            ]
         },
-        'brown': {
-            videos: [
-                'videos/vid1 (2).mp4',
-                'videos/vid1 (3).mp4',
-                'videos/vid1 (4).mp4',
-                'videos/vid1 (5).mp4',
-                'videos/vid1 (6).mp4',
-                'videos/vid1 (1).mp4'
-            ],
-            name: 'Vibram Gamble Brown',
-            price: '$105'
-        },
-        'tan': {
-            videos: [
-                'videos/vid1 (3).mp4',
-                'videos/vid1 (4).mp4',
-                'videos/vid1 (5).mp4',
-                'videos/vid1 (6).mp4',
-                'videos/vid1 (1).mp4',
-                'videos/vid1 (2).mp4'
-            ],
-            name: 'Vibram Gamble Tan',
-            price: '$110'
-        },
-        'navy': {
-            videos: [
-                'videos/vid1 (4).mp4',
-                'videos/vid1 (5).mp4',
-                'videos/vid1 (6).mp4',
-                'videos/vid1 (1).mp4',
-                'videos/vid1 (2).mp4',
-                'videos/vid1 (3).mp4'
-            ],
-            name: 'Vibram Gamble Navy',
-            price: '$115'
-        },
-        'blue': {
-            videos: [
-                'videos/vid1 (5).mp4',
-                'videos/vid1 (6).mp4',
-                'videos/vid1 (1).mp4',
-                'videos/vid1 (2).mp4',
-                'videos/vid1 (3).mp4',
-                'videos/vid1 (4).mp4'
-            ],
-            name: 'Vibram Gamble Blue',
-            price: '$120'
-        },
-        'pink': {
-            videos: [
-                'videos/vid1 (6).mp4',
-                'videos/vid1 (1).mp4',
-                'videos/vid1 (2).mp4',
-                'videos/vid1 (3).mp4',
-                'videos/vid1 (4).mp4',
-                'videos/vid1 (5).mp4'
-            ],
-            name: 'Vibram Gamble Pink',
-            price: '$125'
-        }
+        details: [
+            "Premium leather upper for durability and style",
+            "Vibram outsole for superior traction",
+            "Padded collar for ankle support",
+            "Breathable mesh lining",
+            "Handcrafted with attention to detail",
+            "Available in multiple colors"
+        ]
     };
 
-    // Initialize with first color
-    let currentColor = 'black';
-    let currentAngle = 0; // First video angle
+    initializeProductPage(defaultProduct);
+}
+
+function updateVideoThumbnails(videos) {
+    const thumbnailsContainer = document.querySelector('.video-thumbnails');
+    thumbnailsContainer.innerHTML = '';
     
-    // Color selection handler
-    colorOptions.forEach(color => {
-        color.addEventListener('click', function() {
-            // Update selected color UI
-            document.querySelector('.color-option.selected').classList.remove('selected');
-            this.classList.add('selected');
-            
-            // Get the selected color
-            currentColor = this.dataset.color;
-            
-            // Reset to first angle when color changes
-            currentAngle = 0;
-            
-            // Update the main video
-            updateMainVideo();
-            
-            // Update product information
-            updateProductInfo();
-            
-            // Update thumbnail videos
-            updateThumbnails();
-        });
+    videos.forEach((video, index) => {
+        thumbnailsContainer.innerHTML += `
+            <div class="thumbnail ${index === 0 ? 'active' : ''}" 
+                 data-angle="${index + 1}" 
+                 data-video-set="1">
+                <video autoplay loop muted playsinline>
+                    <source src="${video}" type="video/mp4">
+                </video>
+            </div>
+        `;
     });
     
-    // Update the main video display
-    function updateMainVideo() {
-        if (colorData[currentColor] && colorData[currentColor].videos[currentAngle]) {
-            // Clear existing sources
-            while (mainVideo.firstChild) {
-                mainVideo.removeChild(mainVideo.firstChild);
-            }
+    // Set the main video to the first thumbnail
+    if (videos.length > 0) {
+        const mainVideo = document.getElementById('mainVideo');
+        mainVideo.innerHTML = `<source src="${videos[0]}" type="video/mp4">`;
+        mainVideo.load();
+        mainVideo.play().catch(e => console.log('Autoplay prevented:', e));
+    }
+
+    // Update pagination dots
+    updatePaginationDots(videos.length);
+}
+
+function updatePaginationDots(count) {
+    const dotsContainer = document.querySelector('.pagination-dots');
+    dotsContainer.innerHTML = '';
+    
+    for (let i = 0; i < count; i++) {
+        dotsContainer.innerHTML += `
+            <span class="dot ${i === 0 ? 'active' : ''}" data-index="${i}"></span>
+        `;
+    }
+}
+
+function initializeThumbnailClickHandlers() {
+    document.addEventListener('click', function(e) {
+        // Handle thumbnail clicks
+        if (e.target.closest('.thumbnail')) {
+            const thumbnail = e.target.closest('.thumbnail');
+            const videoSrc = thumbnail.querySelector('video source').src;
+            const mainVideo = document.getElementById('mainVideo');
             
-            // Create new source
-            const newSource = document.createElement('source');
-            newSource.src = colorData[currentColor].videos[currentAngle];
-            newSource.type = 'video/mp4';
-            mainVideo.appendChild(newSource);
+            // Update active thumbnail
+            document.querySelector('.thumbnail.active').classList.remove('active');
+            thumbnail.classList.add('active');
+            
+            // Update main video
+            mainVideo.innerHTML = `<source src="${videoSrc}" type="video/mp4">`;
             mainVideo.load();
             mainVideo.play().catch(e => console.log('Autoplay prevented:', e));
-        }
-    }
-    
-    // Update product information (name, price)
-    function updateProductInfo() {
-        if (colorData[currentColor]) {
-            // Update product title
-            productTitle.textContent = 'Classic Derby ' + currentColor.charAt(0).toUpperCase() + currentColor.slice(1);
             
-            // Update style name and price
-            styleName.innerHTML = `${colorData[currentColor].name} <span class="style-price">${colorData[currentColor].price}</span>`;
-            
-            // Update total price
-            priceSection.textContent = `$ ${colorData[currentColor].price.replace('$', '')}.-`;
-        }
-    }
-    
-    // Update thumbnail videos for the current color
-    function updateThumbnails() {
-        const thumbnails = document.querySelectorAll('.thumbnail');
-        
-        thumbnails.forEach((thumb, index) => {
-            // Clear existing video
-            const videoElement = thumb.querySelector('video');
-            if (videoElement) {
-                while (videoElement.firstChild) {
-                    videoElement.removeChild(videoElement.firstChild);
-                }
-                
-                // Add new source if video exists for this angle
-                if (colorData[currentColor] && colorData[currentColor].videos[index]) {
-                    const newSource = document.createElement('source');
-                    newSource.src = colorData[currentColor].videos[index];
-                    newSource.type = 'video/mp4';
-                    videoElement.appendChild(newSource);
-                    videoElement.load();
-                    videoElement.play().catch(e => console.log('Autoplay prevented:', e));
-                    
-                    // Update data attributes
-                    thumb.dataset.videoSet = currentColor;
-                    thumb.dataset.angle = (index + 1).toString();
-                }
-            }
-            
-            // Update active state
-            thumb.classList.remove('active');
-            if (index === currentAngle) {
-                thumb.classList.add('active');
-            }
-        });
-    }
-    
-    // Initialize the color selection functionality
-    function initializeColorSelection() {
-        // Set click event for the first color to ensure it's selected
-        if (colorOptions.length > 0) {
-            colorOptions[0].classList.add('selected');
+            // Update active dot
+            const index = Array.from(document.querySelectorAll('.thumbnail')).indexOf(thumbnail);
+            updateActiveDot(index);
         }
         
-        // Update all elements with the initial color
-        updateMainVideo();
-        updateProductInfo();
-        updateThumbnails();
-    }
-    
-    // Start the initialization
-    initializeColorSelection();
-});
+        // Handle dot clicks
+        if (e.target.classList.contains('dot')) {
+            const index = parseInt(e.target.dataset.index);
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            if (thumbnails[index]) {
+                // Simulate click on the corresponding thumbnail
+                thumbnails[index].click();
+            }
+        }
+    });
+}
 
-// Size Selection Handler
-document.addEventListener('DOMContentLoaded', function() {
-    const sizeOptions = document.querySelectorAll('.size-option');
-    
-    sizeOptions.forEach(size => {
-        size.addEventListener('click', function() {
+function updateActiveDot(index) {
+    const dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+function initializeColorSelection() {
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.color-option')) {
+            const colorOption = e.target.closest('.color-option');
+            const selectedColor = colorOption.dataset.color;
+            
+            // Update selected color UI
+            document.querySelector('.color-option.selected').classList.remove('selected');
+            colorOption.classList.add('selected');
+            
+            // Get product data
+            const productData = JSON.parse(localStorage.getItem('currentProduct')) || {};
+            
+            // Update the main video and thumbnails if videos exist for this color
+            if (productData.videosets && productData.videosets[selectedColor]) {
+                updateVideoThumbnails(productData.videosets[selectedColor]);
+            }
+            
+            // Update product information
+            const colorName = selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1);
+            document.querySelector('.product-title').textContent = `${productData.name} ${colorName}`;
+            
+            // For demo purposes, we'll adjust the price based on color
+            const priceAdjustments = {
+                'black': 0,
+                'brown': 10,
+                'tan': 15,
+                'navy': 20,
+                'blue': 25,
+                'pink': 30
+            };
+            const adjustedPrice = (productData.price || 95) + (priceAdjustments[selectedColor] || 0);
+            
+            document.querySelector('.style-name').innerHTML = 
+                `${productData.brand} ${productData.model} ${colorName} <span class="style-price">$${adjustedPrice}</span>`;
+            document.querySelector('.total-price').textContent = `$ ${adjustedPrice}.-`;
+        }
+    });
+}
+
+function initializeSizeSelection() {
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('size-option')) {
             // Remove selected class from all sizes
             document.querySelectorAll('.size-option').forEach(option => {
                 option.classList.remove('selected');
             });
             
             // Add selected class to clicked size
-            this.classList.add('selected');
-        });
+            e.target.classList.add('selected');
+        }
     });
-});
+    
+    // Select the middle size by default (or first if only one)
+    const sizeOptions = document.querySelectorAll('.size-option');
+    if (sizeOptions.length > 0) {
+        const defaultSizeIndex = Math.floor(sizeOptions.length / 2);
+        sizeOptions[defaultSizeIndex].classList.add('selected');
+    }
+}
 
-// Cart and Favorites Functionality
-document.addEventListener('DOMContentLoaded', function() {
+function initializeCartAndFavorites() {
     const addToCartBtn = document.querySelector('.add-to-cart');
     const favoriteBtn = document.querySelector('.favorite-btn');
     
-    // Add to Cart
     addToCartBtn.addEventListener('click', function(e) {
         e.preventDefault();
         
+        const productData = JSON.parse(localStorage.getItem('currentProduct')) || {};
         const selectedColor = document.querySelector('.color-option.selected').dataset.color;
         const selectedSize = document.querySelector('.size-option.selected').textContent;
         const productName = document.querySelector('.product-title').textContent;
@@ -228,6 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Here you would typically send this data to your backend
         console.log('Added to cart:', {
+            productId: productData.id,
             product: productName,
             color: selectedColor,
             size: selectedSize,
@@ -240,15 +293,15 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.remove('clicked');
         }, 500);
         
-        // Show confirmation (you might want to use a more elegant notification system)
+        // Show confirmation
         alert(`${productName} (${selectedColor}, size ${selectedSize}) added to cart!`);
     });
     
-    // Add to Favorites
     favoriteBtn.addEventListener('click', function(e) {
         e.preventDefault();
         
-        const productName = document.querySelector('.product-title').textContent;
+        const productData = JSON.parse(localStorage.getItem('currentProduct')) || {};
+        const productName = productData.name || 'Product';
         
         // Toggle favorite state
         const isFavorite = this.classList.contains('favorited');
@@ -263,66 +316,38 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Added to favorites:', productName);
         }
     });
-});
+}
 
-// Expandable Product Details
-document.addEventListener('DOMContentLoaded', function() {
-    const tabHeaders = document.querySelectorAll('.details-header');
-    const tabs = document.querySelectorAll('.tab');
-    
-    // Initialize all content as hidden
-    tabHeaders.forEach(header => {
+function initializeExpandableDetails() {
+    document.querySelectorAll('.details-header').forEach(header => {
         const content = header.nextElementSibling;
         const icon = header.querySelector('i');
         
         // Start with content collapsed
         content.style.display = 'none';
-        icon.style.transform = 'rotate(0deg)';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-right');
         
-        // Set click handler
         header.addEventListener('click', function() {
             const isHidden = content.style.display === 'none';
             
             // Toggle content visibility
             content.style.display = isHidden ? 'block' : 'none';
             
-            // Rotate icon
-            icon.style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+            // Toggle icon
+            if (isHidden) {
+                icon.classList.remove('fa-chevron-right');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-right');
+            }
         });
     });
     
-    // Tab switching
-    tabs.forEach(tab => {
-        tab.addEventListener('click', function() {
-            // Remove active class from all tabs and panels
-            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Show corresponding panel (but keep its content collapsed)
-            const panelId = this.textContent.trim().toLowerCase().replace(/ /g, '-');
-            const panel = document.getElementById(panelId);
-            panel.classList.add('active');
-            
-            // Collapse all details when switching tabs
-            const headers = panel.querySelectorAll('.details-header');
-            headers.forEach(header => {
-                const content = header.nextElementSibling;
-                const icon = header.querySelector('i');
-                content.style.display = 'none';
-                icon.style.transform = 'rotate(0deg)';
-            });
-        });
-    });
-    
-    // Activate first tab by default but keep its content collapsed
-    if (tabs.length > 0) {
-        tabs[0].classList.add('active');
-        const firstPanel = document.querySelector('.tab-panel');
-        if (firstPanel) {
-            firstPanel.classList.add('active');
-        }
+    // Activate first tab by default
+    const firstTabPanel = document.querySelector('.tab-panel');
+    if (firstTabPanel) {
+        firstTabPanel.classList.add('active');
     }
-});
+}
