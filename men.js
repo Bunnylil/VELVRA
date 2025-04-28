@@ -261,134 +261,115 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         id: 9,
-        name: "CHUCK 70",
-        model: "Chuck Taylor",
-        brand: "Converse",
-        price: 85,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027450-100_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Shadow Turf 3",
+        model: "UA Shadow",
+        brand: "UnderArmour",
+        price: 80,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3028293-016_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Casual", "Skate"],
+        sport: ["Soccer"],
         color: "Black",
-        colors: ["black", "white", "red"],
+        colors: ["black"],
         sizes: [37, 38, 39, 40, 41, 42, 43],
         rating: 4.3,
         trending: true,
         new: false,
         videosets: {
           "black": [
-            "videos/chuck_black_1.mp4",
-            "videos/chuck_black_2.mp4"
-          ],
-          "white": [
-            "videos/chuck_white_1.mp4",
-            "videos/chuck_white_2.mp4",
-            "videos/chuck_white_3.mp4"
-          ],
-          "red": [
-            "videos/chuck_red_1.mp4",
-            "videos/chuck_red_2.mp4"
+            "videos/vid 9.mp4"
           ]
         },
         details: [
-          "Canvas upper",
-          "OrthoLite insole",
-          "Vulcanized rubber sole",
-          "Classic Chuck Taylor design",
-          "Reinforced toe cap"
+          "Super-soft, durable synthetic upper delivers a second-skin fit & feel",
+          "Durable synthetic suede toe & heel caps for added abrasion resistance",
+          "Premium foam on internal collar for heel hold & comfort",
+          "Ultra-responsive, Charged Cushioning® midsole absorbs impact & converts it into responsive quickness",
+          "Durable rubber outsole with strategic lugs for maximum grip on artificial turf & hard ground surfaces"
         ]
       },
       {
         id: 10,
-        name: "GEL-KAYANO 28",
-        model: "Kayano 28",
-        brand: "ASICS",
-        price: 160,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027443-101_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Magnetico Select 4 FG",
+        model: "UA Magnetico",
+        brand: "UnderArmour",
+        price: 72.97,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3027707-800_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Running"],
-        color: "Blue",
-        colors: ["blue", "black"],
+        sport: ["Soccer"],
+        color: "Orange",
+        colors: ["orange", "black"],
         sizes: [39, 40, 41, 42, 43, 44, 45],
         rating: 4.8,
         trending: false,
         new: true,
         videosets: {
-          "blue": [
-            "videos/kayano_blue_1.mp4",
-            "videos/kayano_blue_2.mp4",
-            "videos/kayano_blue_3.mp4"
+          "orange": [
+            "videos/vid 10 (2).mp4"
           ],
           "black": [
-            "videos/kayano_black_1.mp4",
-            "videos/kayano_black_2.mp4"
+            "videos/vid 10 (1).mp4"
           ]
         },
         details: [
-          "Dynamic DUOMAX support system",
-          "FF BLAST cushioning",
+          "Super-soft synthetic leather upper provides a snug fit",
+          "3D print & mudguard for additional touch & control",
           "Ortholite X-40 sockliner",
-          "AHAR outsole rubber",
-          "Engineered mesh upper"
+          "Textile collar & tongue for a sock-like fit with premium internal foam for heel hold & added comfort",
+          "TPU outsole with conical studs provides ideal traction"
         ]
       },
       {
         id: 11,
-        name: "CLASSIC LEATHER",
-        model: "Classic",
-        brand: "Reebok",
-        price: 75,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027439-100_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Bandit Trail 3",
+        model: "UA Bandit",
+        brand: "UnderArmour",
+        price: 90,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3028657-014_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Casual", "Lifestyle"],
-        color: "White",
-        colors: ["white", "black"],
+        sport: ["Running"],
+        color: "Grey",
+        colors: ["grey", "black","orange"],
         sizes: [38, 39, 40, 41, 42, 43],
         rating: 4.2,
         trending: false,
         new: false,
         videosets: {
-          "white": [
-            "videos/reebok_white_1.mp4",
-            "videos/reebok_white_2.mp4"
+          "grey": [
+            "videos/vid 11 (3).mp4"
           ],
           "black": [
-            "videos/reebok_black_1.mp4",
-            "videos/reebok_black_2.mp4",
-            "videos/reebok_black_3.mp4"
+            "videos/vid 11 (1).mp4"
+          ],
+          "orange": [
+            "videos/vid 11 (2).mp4"
           ]
         },
         details: [
-          "Leather upper",
-          "EVA midsole",
-          "Rubber outsole",
-          "Classic Reebok design",
-          "Padded collar"
+          "Lightweight, engineered two-toned mesh upper construction for increased ventilation",
+          "Strategic overlays for added durability & protection in high-abrasion areas",
+          "Molded sockliner forms to the foot, eliminating slippage & providing ideal underfoot comfort",
+          "Charged Cushioning® midsole uses compression molded foam for ultimate responsiveness & durability",
+          "Durable outsole with technical trail lugs for ultimate traction when going up & down the trails​"
         ]
       },
       {
         id: 12,
-        name: "SK8-HI",
-        model: "Sk8-Hi",
-        brand: "Vans",
-        price: 75,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3028410-800_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Charged Maven Trek Waterproof",
+        model: "UA Charged",
+        brand: "UnderArmour",
+        price: 125,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3026735-001_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Skate", "Casual"],
+        sport: ["Outdoor"],
         color: "Black",
-        colors: ["black", "checkerboard"],
+        colors: ["black"],
         sizes: [37, 38, 39, 40, 41, 42],
         rating: 4.4,
         trending: true,
         new: false,
         videosets: {
           "black": [
-            "videos/vans_black_1.mp4",
-            "videos/vans_black_2.mp4"
-          ],
-          "checkerboard": [
-            "videos/vans_check_1.mp4",
-            "videos/vans_check_2.mp4",
-            "videos/vans_check_3.mp4"
+            "videos/vid 12.mp4"
           ]
         },
         details: [
@@ -416,12 +397,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new: true,
         videosets: {
           "black": [
-            "videos/ua_black_1.mp4",
-            "videos/ua_black_2.mp4"
-          ],
-          "grey": [
-            "videos/ua_grey_1.mp4",
-            "videos/ua_grey_2.mp4"
+            "videos/vid 2 (1).mp4"
           ]
         },
         details: [
@@ -449,17 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new: false,
         videosets: {
           "black": [
-            "videos/chuck_black_1.mp4",
-            "videos/chuck_black_2.mp4"
-          ],
-          "white": [
-            "videos/chuck_white_1.mp4",
-            "videos/chuck_white_2.mp4",
-            "videos/chuck_white_3.mp4"
-          ],
-          "red": [
-            "videos/chuck_red_1.mp4",
-            "videos/chuck_red_2.mp4"
+            "videos/vid 2 (2).mp4"
           ]
         },
         details: [
@@ -487,13 +453,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new: true,
         videosets: {
           "blue": [
-            "videos/kayano_blue_1.mp4",
-            "videos/kayano_blue_2.mp4",
-            "videos/kayano_blue_3.mp4"
-          ],
-          "black": [
-            "videos/kayano_black_1.mp4",
-            "videos/kayano_black_2.mp4"
+            "videos/vid 2 (3).mp4"
           ]
         },
         details: [
@@ -521,13 +481,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new: false,
         videosets: {
           "white": [
-            "videos/reebok_white_1.mp4",
-            "videos/reebok_white_2.mp4"
-          ],
-          "black": [
-            "videos/reebok_black_1.mp4",
-            "videos/reebok_black_2.mp4",
-            "videos/reebok_black_3.mp4"
+            "videos/vid 2 (2).mp4"
           ]
         },
         details: [
@@ -555,13 +509,7 @@ document.addEventListener("DOMContentLoaded", function () {
         new: false,
         videosets: {
           "black": [
-            "videos/vans_black_1.mp4",
-            "videos/vans_black_2.mp4"
-          ],
-          "checkerboard": [
-            "videos/vans_check_1.mp4",
-            "videos/vans_check_2.mp4",
-            "videos/vans_check_3.mp4"
+            "videos/vid 2 (3).mp4"
           ]
         },
         details: [
