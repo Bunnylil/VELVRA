@@ -47,248 +47,216 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         id: 2,
-        name: "ULTRABOOST 22",
-        model: "UB 22",
-        brand: "Adidas",
-        price: 180,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027454-600_DEFAULT?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Leadoff Mid 3.0",
+        model: "UA Leadoff",
+        brand: "UnderArmour",
+        price: 45,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3027446-600_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
         sport: ["Baseball"],
         color: "Red",
-        colors: ["black", "white", "blue"],
+        colors: ["red", "blue", "black"],
         sizes: [38, 39, 40, 41, 42, 43, 44],
         rating: 4.7,
         trending: true,
         new: true,
         videosets: {
-          "black": [
-            "videos/ub_black_1.mp4",
-            "videos/ub_black_2.mp4",
-            "videos/ub_black_3.mp4"
-          ],
-          "white": [
-            "videos/ub_white_1.mp4",
-            "videos/ub_white_2.mp4"
-          ],
           "blue": [
-            "videos/ub_blue_1.mp4",
-            "videos/ub_blue_2.mp4",
-            "videos/ub_blue_3.mp4"
+            "videos/vid 2 (2).mp4"
+          ],
+          "black": [
+            "videos/vid 2 (1).mp4"
+          ],
+          "red": [
+            "videos/vid 2 (3).mp4"
           ]
         },
         details: [
-          "Responsive Boost midsole",
-          "Primeknit+ adaptive fit",
-          "Linear Energy Push system",
-          "Continental rubber outsole",
-          "Tailored Fiber Placement upper"
+          "Synthetic upper is lightweight & durable",
+          "Padded collar & heel construction for ultimate step-in comfort",
+          "Mid-top design for added ankle support",
+          "Full-length EVA midsole cushioning that evenly distributes cleat pressure underfoot for added comfort",
+          "Rubber molded cleats provide optimal traction & durability on all field surfaces"
         ]
       },
       {
         id: 3,
-        name: "990V5",
-        model: "990v5",
+        name: "UA Harper 9 RM",
+        model: "UA Harper",
         brand: "UnderArmour",
-        price: 175,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027447-001_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        price: 50,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3027442-103_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
         sport: ["Baseball"],
-        color: "Grey",
-        colors: ["grey", "navy"],
+        color: "blue",
+        colors: ["blue","grey","red","white"],
         sizes: [39, 40, 41, 42, 43, 44],
         rating: 4.6,
         trending: false,
         new: false,
         videosets: {
-          "grey": [
-            "videos/nb990_grey_1.mp4",
-            "videos/nb990_grey_2.mp4"
+          "blue": [
+            "videos/vid 3 (3).mp4"
           ],
-          "navy": [
-            "videos/nb990_navy_1.mp4",
-            "videos/nb990_navy_2.mp4",
-            "videos/nb990_navy_3.mp4"
+          "grey": [
+            "videos/vid 3 (1).mp4"
+          ],
+          "red": [
+            "videos/vid 3 (5).mp4"
+          ],
+          "white": [
+            "videos/vid 3 (2).mp4"
           ]
         },
         details: [
-          "Pigskin and mesh upper",
-          "ENCAP midsole technology",
-          "Dual-density collar foam",
-          "Blown rubber outsole",
-          "Made in USA"
+          "Synthetic upper is light, breathable & super-durable",
+          "Full-length EVA midsole for underfoot cushioning & comfort",
+          "New rubber molded outsole is more comfortable & provides traction & durability on all field surfaces"
         ]
       },
       {
         id: 4,
-        name: "CHUCK 70",
-        model: "Chuck Taylor",
-        brand: "Converse",
-        price: 85,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027448-104_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Drive Pro Spikeless",
+        model: "UA Drive",
+        brand: "UnderArmour",
+        price: 150,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3026920-002_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Casual", "Skate"],
+        sport: ["Golf"],
         color: "Black",
-        colors: ["black", "white", "red"],
+        colors: ["black", "white"],
         sizes: [37, 38, 39, 40, 41, 42, 43],
         rating: 4.3,
         trending: true,
         new: false,
         videosets: {
           "black": [
-            "videos/chuck_black_1.mp4",
-            "videos/chuck_black_2.mp4"
+            "videos/vid 4 (1).mp4"
           ],
           "white": [
-            "videos/chuck_white_1.mp4",
-            "videos/chuck_white_2.mp4",
-            "videos/chuck_white_3.mp4"
-          ],
-          "red": [
-            "videos/chuck_red_1.mp4",
-            "videos/chuck_red_2.mp4"
+            "videos/vid 4 (2).mp4"
           ]
         },
         details: [
-          "Canvas upper",
-          "OrthoLite insole",
-          "Vulcanized rubber sole",
-          "Classic Chuck Taylor design",
-          "Reinforced toe cap"
+          "UA Swing Support System (S3) provides smarter traction, dual-foam cushioning & lockdown lacing",
+          "Swing Support Strap combines with reinforcement in the upper to provide biomechanically correct lock-in",
+          "Energy-returning UA HOVR™ foam + supportive Charged Cushioning® guides natural motion of the foot in a golf swing",
+          "Hybrid TPU + rubber outsole for ideal combination of penetrating traction & underfoot comfort",
+          "Outsole has strategic flex grooves, directional traction & rubber up the side for added support at impact"
         ]
       },
       {
         id: 5,
-        name: "GEL-KAYANO 28",
-        model: "Kayano 28",
-        brand: "ASICS",
-        price: 160,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027836-002_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Drive Fade Spikeless",
+        model: "UA Drive",
+        brand: "UnderArmour",
+        price: 120,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3027085-001_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Running"],
-        color: "Blue",
-        colors: ["blue", "black"],
+        sport: ["Golf"],
+        color: "Black",
+        colors: ["black", "grey"],
         sizes: [39, 40, 41, 42, 43, 44, 45],
         rating: 4.8,
         trending: false,
         new: true,
         videosets: {
-          "blue": [
-            "videos/kayano_blue_1.mp4",
-            "videos/kayano_blue_2.mp4",
-            "videos/kayano_blue_3.mp4"
-          ],
           "black": [
-            "videos/kayano_black_1.mp4",
-            "videos/kayano_black_2.mp4"
+            "videos/vid 5 (1).mp4"
+          ],
+          "grey": [
+            "videos/vid 5 (2).mp4"
           ]
         },
         details: [
-          "Dynamic DUOMAX support system",
-          "FF BLAST cushioning",
-          "Ortholite X-40 sockliner",
-          "AHAR outsole rubber",
-          "Engineered mesh upper"
+          "Breathable, supportive engineered microfiber upper & full waterproof membrane with 1-year warranty",
+          "Molded sockliner for enhanced fit & comfort",
+          "UA HOVR™ cushioning in the heel helps eliminate impact",
+          "UA Rotational Resistance outsole for lightweight lockdown traction to support your swing",
+          "Spikeless outsole for a lighter, more flexible feel without any compromise in traction"
         ]
       },
       {
         id: 6,
-        name: "CLASSIC LEATHER",
-        model: "Classic",
-        brand: "Reebok",
-        price: 75,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027451-400_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Spotlight 4 MC",
+        model: "UA Spotlight",
+        brand: "UnderArmour",
+        price: 130,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3028705-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Casual", "Lifestyle"],
+        sport: ["Football"],
         color: "White",
-        colors: ["white", "black"],
+        colors: ["white"],
         sizes: [38, 39, 40, 41, 42, 43],
         rating: 4.2,
         trending: false,
         new: false,
         videosets: {
           "white": [
-            "videos/reebok_white_1.mp4",
-            "videos/reebok_white_2.mp4"
-          ],
-          "black": [
-            "videos/reebok_black_1.mp4",
-            "videos/reebok_black_2.mp4",
-            "videos/reebok_black_3.mp4"
+            "videos/vid 6.mp4"
           ]
         },
         details: [
-          "Leather upper",
-          "EVA midsole",
-          "Rubber outsole",
-          "Classic Reebok design",
-          "Padded collar"
+          "UA CLONE upper provides a truly customized fit, no matter your foot shape",
+          "An internal layer of flexible, auxetic material molds around the foot for a custom, precise, glove-like fit & feel",
+          "Anatomical 3D-bootie collar for ultimate comfort & superior ankle lockdown",
+          "SuperFoam insole forms to the shape of your foot for better fit & shock-absorption",
+          "Bladed & conical molded studs for optimal multidirectional traction"
         ]
       },
       {
         id: 7,
-        name: "SK8-HI",
-        model: "Sk8-Hi",
-        brand: "Vans",
-        price: 75,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027456-001_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Spotlight Turf",
+        model: "UA Spotlight",
+        brand: "UnderArmour",
+        price: 110,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3028706-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Skate", "Casual"],
-        color: "Black",
-        colors: ["black", "checkerboard"],
+        sport: ["Laorosse",],
+        color: "White",
+        colors: ["white"],
         sizes: [37, 38, 39, 40, 41, 42],
         rating: 4.4,
         trending: true,
         new: false,
         videosets: {
-          "black": [
-            "videos/vans_black_1.mp4",
-            "videos/vans_black_2.mp4"
-          ],
-          "checkerboard": [
-            "videos/vans_check_1.mp4",
-            "videos/vans_check_2.mp4",
-            "videos/vans_check_3.mp4"
+          "white": [
+            "videos/vid 7.mp4"
           ]
         },
         details: [
-          "Canvas and suede upper",
-          "Reinforced toe caps",
-          "Padded collars",
-          "Waffle outsole",
-          "Signature Vans style"
+          "UA CLONE upper provides a truly customized fit, no matter your foot shape",
+          "An internal layer of flexible, auxetic material molds around the foot for a custom, precise, glove-like fit & feel",
+          "Anatomical 3D-bootie collar for ultimate comfort & superior ankle lockdown",
+          "3D-molded sockliner for added comfort & support",
+          "Rubber outsole with mini-lugs for incredible grip & traction on artificial turf & dry natural fields"
         ]
       },
       {
         id: 8,
-        name: "CUSHION CREW",
-        model: "Crew",
-        brand: "Under Armour",
-        price: 60,
-        image: "https://underarmour.scene7.com/is/image/Underarmour/3027453-100_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
+        name: "UA Highlight 2 MC",
+        model: "UA Highlight",
+        brand: "UnderArmour",
+        price: 140,
+        image: "https://underarmour.scene7.com/is/image/Underarmour/3028659-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
         gender: ["Men"],
-        sport: ["Training", "Gym"],
-        color: "Black",
-        colors: ["black", "grey"],
+        sport: ["Laorosse"],
+        color: "White",
+        colors: ["white"],
         sizes: [39, 40, 41, 42, 43, 44],
         rating: 4.1,
         trending: false,
         new: true,
         videosets: {
-          "black": [
-            "videos/ua_black_1.mp4",
-            "videos/ua_black_2.mp4"
-          ],
-          "grey": [
-            "videos/ua_grey_1.mp4",
-            "videos/ua_grey_2.mp4"
+          "white": [
+            "videos/vid 8.mp4"
           ]
         },
         details: [
-          "Lightweight mesh upper",
-          "EVA sockliner",
+          "Easy-entry UA IntelliKnit upper is breathable, light & comfortable with stretch & support where you need it",
+          "Updated, high-rebound SuperFoam® insole with more foam provides optimal comfort & reduced stud pressure",
           "Charged cushioning midsole",
-          "Rubber outsole",
-          "Breathable design"
+          "Lightweight UA Scatter Traction cleat plate supports powerful movements in every direction"
         ]
       },
       {

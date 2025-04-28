@@ -1,16 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Load product data from localStorage
+    
     const productData = JSON.parse(localStorage.getItem('currentProduct'));
     
     if (productData) {
-        // Initialize the page with the product data
+        
         initializeProductPage(productData);
     } else {
-        // Fallback to default product if none is selected
+        
         initializeDefaultProduct();
     }
 
-    // Initialize all interactive components
+    
     initializeColorSelection();
     initializeSizeSelection();
     initializeCartAndFavorites();
@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeProductPage(product) {
-    // Set basic product information
+    
     document.querySelector('.art-number').textContent = `ART ${product.id.toString().padStart(3, '0')}`;
     document.querySelector('.product-title').textContent = product.name;
     
-    // Set style and price (using first color by default)
+    
     const firstColor = product.colors[0];
     const firstColorName = firstColor.charAt(0).toUpperCase() + firstColor.slice(1);
     document.querySelector('.style-name').innerHTML = 
         `${product.brand} ${product.model} <span class="style-price">$${product.price}</span>`;
     document.querySelector('.total-price').textContent = `$ ${product.price}.-`;
 
-    // Set product details
+    
     const detailsContent = document.querySelector('#product-details .details-content');
     detailsContent.innerHTML = '';
     product.details.forEach(detail => {
@@ -62,7 +62,7 @@ function initializeProductPage(product) {
         `;
     });
 
-    // Initialize video thumbnails for the first color
+    
     if (product.videosets && product.videosets[firstColor]) {
         updateVideoThumbnails(product.videosets[firstColor]);
     } else {
@@ -78,12 +78,12 @@ function initializeProductPage(product) {
         updateVideoThumbnails(defaultVideos);
     }
 
-    // Initialize size selection after creating the elements
+    
     initializeSizeSelection();
 }
 
 function initializeDefaultProduct() {
-    // Fallback product data if none is selected
+    
     const defaultProduct = {
         id: '001',
         name: 'Classic Derby',
@@ -139,7 +139,7 @@ function updateVideoThumbnails(videos) {
         `;
     });
     
-    // Set the main video to the first thumbnail
+    
     if (videos.length > 0) {
         const mainVideo = document.getElementById('mainVideo');
         mainVideo.innerHTML = `<source src="${videos[0]}" type="video/mp4">`;
@@ -147,7 +147,7 @@ function updateVideoThumbnails(videos) {
         mainVideo.play().catch(e => console.log('Autoplay prevented:', e));
     }
 
-    // Update pagination dots
+    
     updatePaginationDots(videos.length);
 }
 
@@ -164,33 +164,33 @@ function updatePaginationDots(count) {
 
 function initializeThumbnailClickHandlers() {
     document.addEventListener('click', function(e) {
-        // Handle thumbnail clicks
+        
         if (e.target.closest('.thumbnail')) {
             const thumbnail = e.target.closest('.thumbnail');
             const videoSrc = thumbnail.querySelector('video source').src;
             const mainVideo = document.getElementById('mainVideo');
             
-            // Update active thumbnail
+           
             document.querySelector('.thumbnail.active').classList.remove('active');
             thumbnail.classList.add('active');
             
-            // Update main video
+            
             mainVideo.innerHTML = `<source src="${videoSrc}" type="video/mp4">`;
             mainVideo.load();
             mainVideo.play().catch(e => console.log('Autoplay prevented:', e));
             
-            // Update active dot
+           
             const index = Array.from(document.querySelectorAll('.thumbnail')).indexOf(thumbnail);
             updateActiveDot(index);
         }
         
-        // Handle dot clicks
+        
         if (e.target.classList.contains('dot')) {
             const index = parseInt(e.target.dataset.index);
             const thumbnails = document.querySelectorAll('.thumbnail');
             
             if (thumbnails[index]) {
-                // Simulate click on the corresponding thumbnail
+                
                 thumbnails[index].click();
             }
         }
@@ -210,23 +210,23 @@ function initializeColorSelection() {
             const colorOption = e.target.closest('.color-option');
             const selectedColor = colorOption.dataset.color;
             
-            // Update selected color UI
+           
             document.querySelector('.color-option.selected').classList.remove('selected');
             colorOption.classList.add('selected');
             
-            // Get product data
+            
             const productData = JSON.parse(localStorage.getItem('currentProduct')) || {};
             
-            // Update the main video and thumbnails if videos exist for this color
+            
             if (productData.videosets && productData.videosets[selectedColor]) {
                 updateVideoThumbnails(productData.videosets[selectedColor]);
             }
             
-            // Update product information
+            
             const colorName = selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1);
             document.querySelector('.product-title').textContent = `${productData.name} ${colorName}`;
             
-            // For demo purposes, we'll adjust the price based on color
+            
             const priceAdjustments = {
                 'black': 0,
                 'brown': 10,
@@ -247,12 +247,12 @@ function initializeColorSelection() {
 function initializeSizeSelection() {
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('size-option')) {
-            // Remove selected class from all sizes
+            
             document.querySelectorAll('.size-option').forEach(option => {
                 option.classList.remove('selected');
             });
             
-            // Add selected class to clicked size
+            
             e.target.classList.add('selected');
         }
     });
@@ -278,7 +278,7 @@ function initializeCartAndFavorites() {
         const productName = document.querySelector('.product-title').textContent;
         const price = document.querySelector('.style-price').textContent;
         
-        // Here you would typically send this data to your backend
+        
         console.log('Added to cart:', {
             productId: productData.id,
             product: productName,
@@ -287,13 +287,13 @@ function initializeCartAndFavorites() {
             price: price
         });
         
-        // Visual feedback
+        
         this.classList.add('clicked');
         setTimeout(() => {
             this.classList.remove('clicked');
         }, 500);
         
-        // Show confirmation
+        
         alert(`${productName} (${selectedColor}, size ${selectedSize}) added to cart!`);
     });
     
@@ -303,7 +303,7 @@ function initializeCartAndFavorites() {
         const productData = JSON.parse(localStorage.getItem('currentProduct')) || {};
         const productName = productData.name || 'Product';
         
-        // Toggle favorite state
+        
         const isFavorite = this.classList.contains('favorited');
         
         if (isFavorite) {
@@ -323,7 +323,7 @@ function initializeExpandableDetails() {
         const content = header.nextElementSibling;
         const icon = header.querySelector('i');
         
-        // Start with content collapsed
+       
         content.style.display = 'none';
         icon.classList.remove('fa-chevron-down');
         icon.classList.add('fa-chevron-right');
@@ -331,10 +331,10 @@ function initializeExpandableDetails() {
         header.addEventListener('click', function() {
             const isHidden = content.style.display === 'none';
             
-            // Toggle content visibility
+            
             content.style.display = isHidden ? 'block' : 'none';
             
-            // Toggle icon
+           
             if (isHidden) {
                 icon.classList.remove('fa-chevron-right');
                 icon.classList.add('fa-chevron-down');
@@ -345,7 +345,7 @@ function initializeExpandableDetails() {
         });
     });
     
-    // Activate first tab by default
+
     const firstTabPanel = document.querySelector('.tab-panel');
     if (firstTabPanel) {
         firstTabPanel.classList.add('active');
