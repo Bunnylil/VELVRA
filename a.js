@@ -265,6 +265,7 @@ function initializeSizeSelection() {
     }
 }
 
+// In the initializeCartAndFavorites function, modify the addToCartBtn click handler:
 function initializeCartAndFavorites() {
     const addToCartBtn = document.querySelector('.add-to-cart');
     const favoriteBtn = document.querySelector('.favorite-btn');
@@ -276,26 +277,52 @@ function initializeCartAndFavorites() {
         const selectedColor = document.querySelector('.color-option.selected').dataset.color;
         const selectedSize = document.querySelector('.size-option.selected').textContent;
         const productName = document.querySelector('.product-title').textContent;
-        const price = document.querySelector('.style-price').textContent;
+        const priceText = document.querySelector('.style-price').textContent;
+        const price = parseFloat(priceText.replace('$', ''));
+        const mainVideo = document.getElementById('mainVideo').querySelector('source').src;
         
-        
-        console.log('Added to cart:', {
-            productId: productData.id,
-            product: productName,
+        // Create cart item object
+        const cartItem = {
+            name: productName,
             color: selectedColor,
             size: selectedSize,
-            price: price
-        });
+            price: price,
+            quantity: 1,
+            video: mainVideo, // Store the video URL
+            id: productData.id || Date.now() // Use product ID or timestamp as fallback
+        };
         
+        // Get existing cart items or initialize empty array
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         
+        // Check if item already exists in cart
+        const existingItemIndex = cartItems.findIndex(item => 
+            item.name === cartItem.name && 
+            item.color === cartItem.color && 
+            item.size === cartItem.size);
+        
+        if (existingItemIndex >= 0) {
+            // Update quantity if item exists
+            cartItems[existingItemIndex].quantity += 1;
+        } else {
+            // Add new item to cart
+            cartItems.push(cartItem);
+        }
+        
+        // Save to localStorage
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        
+        // Visual feedback
         this.classList.add('clicked');
         setTimeout(() => {
             this.classList.remove('clicked');
         }, 500);
         
-        
         alert(`${productName} (${selectedColor}, size ${selectedSize}) added to cart!`);
     });
+    
+    // ... rest of the favorite button code ...
+
     
     favoriteBtn.addEventListener('click', function(e) {
         e.preventDefault();
