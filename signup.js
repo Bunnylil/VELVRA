@@ -25,6 +25,23 @@ document.addEventListener("DOMContentLoaded", () => {
     return emailPattern.test(email);
   }
 
+  // Function to save user data to localStorage
+  function saveUserToLocalStorage(userData) {
+    // Save current user data
+    localStorage.setItem("currentUser", JSON.stringify(userData));
+    
+    // Add to users array for multiple users
+    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    
+    // Check if user with this email already exists
+    const userExists = existingUsers.some(user => user.email === userData.email);
+    
+    if (!userExists) {
+      existingUsers.push(userData);
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+    }
+  }
+
   const passwordInput = document.getElementById("password");
   if (passwordInput) {
     passwordInput.addEventListener("input", function () {
@@ -61,32 +78,58 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = result.user;
 
         const userData = {
-          firstName: user.displayName.split(" ")[0] || "",
-          lastName: user.displayName.split(" ")[1] || "",
+          firstName: user.displayName ? user.displayName.split(" ")[0] : "",
+          lastName: user.displayName ? user.displayName.split(" ").slice(1).join(" ") : "",
           email: user.email,
           countryCode: "",
           phone: user.phoneNumber || "",
-          password: "",
+          password: "", // No password for Google sign-in
           signupMethod: "google",
+          createdAt: new Date().toISOString(),
+          lastLogin: new Date().toISOString()
         };
 
-        const response = await fetch("http://localhost:5000/signup", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(userData),
-        });
+        // Save to localStorage
+        saveUserToLocalStorage(userData);
 
-        const data = await response.json();
-        if (response.ok) {
-          alert(`Welcome, ${user.displayName}! Redirecting...`);
-          window.location.href = "signin.html";
-        } else {
-          alert(`Sign-Up Failed: ${data.error}`);
+        // Optional: Still try to send to backend if it exists
+        try {
+          const response = await fetch("http://localhost:5000/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(userData),
+          });
+          
+          // If backend is available, process its response
+          if (response.ok) {
+            const data = await response.json();
+            console.log("Backend response:", data);
+          }
+        } catch (backendError) {
+          // Backend not available, continue with localStorage only
+          console.log("Backend not available, using localStorage only");
         }
+
+        alert(`Welcome, ${user.displayName}! Redirecting...`);
+        window.location.href = "signin.html";
       } catch (error) {
         console.error("Google Sign-In Error:", error);
         alert(`Sign-In Failed: ${error.message}`);
       }
+    });
+  }
+
+  const twitterButton = document.getElementById("twitter-signin");
+  if (twitterButton) {
+    twitterButton.addEventListener("click", () => {
+      alert("Twitter sign-in is not implemented yet.");
+    });
+  }
+
+  const facebookButton = document.getElementById("facebook-signin");
+  if (facebookButton) {
+    facebookButton.addEventListener("click", () => {
+      alert("Facebook sign-in is not implemented yet.");
     });
   }
 
@@ -126,28 +169,62 @@ document.addEventListener("DOMContentLoaded", () => {
         email,
         countryCode,
         phone,
-        password,
+        password, // In a real app, you should never store plain text passwords
         signupMethod: "manual",
+        createdAt: new Date().toISOString(),
+        lastLogin: new Date().toISOString()
       };
 
+      // Save to localStorage
+      saveUserToLocalStorage(userData);
+
+      // Optional: Still try to send to backend if it exists
       try {
         const response = await fetch("http://localhost:5000/signup", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(userData),
         });
-
-        const data = await response.json();
+        
+        // If backend is available, process its response
         if (response.ok) {
-          alert("Sign up successful! Redirecting...");
-          window.location.href = "signin.html";
-        } else {
-          alert(`Sign up failed: ${data.error}`);
+          const data = await response.json();
+          console.log("Backend response:", data);
         }
       } catch (error) {
-        console.error("Signup Error:", error);
-        alert("An error occurred while signing up.");
+        // Backend not available, continue with localStorage only
+        console.log("Backend not available, using localStorage only");
       }
+
+      alert("Sign up successful! Redirecting...");
+      window.location.href = "signin.html";
     });
   }
+
+  // Check if user is already logged in
+  const currentUser = localStorage.getItem("currentUser");
+  if (currentUser) {
+    const userData = JSON.parse(currentUser);
+    console.log("User already logged in:", userData);
+    // You can redirect or show a message here
+  }
 });
+
+
+function togglePassword() {
+  const passwordInput = document.getElementById("password");
+  const toggleBtn = document.querySelector(".toggle-password");
+  
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    toggleBtn.classList.remove("fa-eye-slash");
+    toggleBtn.classList.add("fa-eye");
+  } else {
+    passwordInput.type = "password";
+    toggleBtn.classList.remove("fa-eye");
+    toggleBtn.classList.add("fa-eye-slash");
+  }
+}
+
+
+window.togglePassword = togglePassword;
