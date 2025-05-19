@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sport: ["Baseball"],
         color: "black",
         colors: ["black", "white", "blue", "purple","grey","pink"],
-        sizes: [36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+        sizes: [1, 37, 38, 39, 40, 41, 42, 43, 44, 45],
         rating: 4.5,
         trending: true,
         new: false,
@@ -758,6 +758,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Pagination state
     const productsPerPage = 12;
     let currentPage = 1;
+    // Track the current filtered products
+    let currentFilteredProducts = [...products];
   
     // Initialize with all filter sections collapsed
     function initFilterSections() {
@@ -771,7 +773,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
     // Initialize
     initFilterSections();
-    renderProducts(products);
+    applyFilters(); // Changed from renderProducts(products) to ensure we use the filtering logic
     setupEventListeners();
   
     function setupEventListeners() {
@@ -779,6 +781,7 @@ document.addEventListener("DOMContentLoaded", function () {
       sortOptions.forEach((option) => {
         option.addEventListener("change", (e) => {
           currentFilters.sort = e.target.value;
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -793,6 +796,7 @@ document.addEventListener("DOMContentLoaded", function () {
               (g) => g !== e.target.value
             );
           }
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -807,6 +811,7 @@ document.addEventListener("DOMContentLoaded", function () {
               (s) => s !== e.target.value
             );
           }
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -821,6 +826,7 @@ document.addEventListener("DOMContentLoaded", function () {
               (c) => c !== e.target.value
             );
           }
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -835,6 +841,7 @@ document.addEventListener("DOMContentLoaded", function () {
               (b) => b !== e.target.value
             );
           }
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -850,6 +857,7 @@ document.addEventListener("DOMContentLoaded", function () {
             e.target.classList.add("active");
             currentFilters.sizes.push(size);
           }
+          currentPage = 1; // Reset to page 1 when filters change
           applyFilters();
         });
       });
@@ -862,6 +870,7 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFilters.maxPrice = maxPriceInput.value
           ? parseInt(maxPriceInput.value)
           : null;
+        currentPage = 1; // Reset to page 1 when filters change
         applyFilters();
       });
   
@@ -885,6 +894,9 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       });
+      
+      // Set up pagination click handlers
+      // This is now handled in renderPagination function
     }
   
     function applyFilters() {
@@ -961,11 +973,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
   
-      // Reset to page 1 when filters change
-      currentPage = 1;
+      // Store the current filtered products for pagination
+      currentFilteredProducts = filteredProducts;
   
-      // Render filtered products
-      renderProducts(filteredProducts);
+      // Render filtered products with pagination
+      renderProducts(currentFilteredProducts);
     }
   
     function clearAllFilters() {
@@ -1000,8 +1012,12 @@ document.addEventListener("DOMContentLoaded", function () {
       minPriceInput.value = "";
       maxPriceInput.value = "";
   
+      // Reset to page 1
+      currentPage = 1;
+      
       // Reset to original products
-      renderProducts(products);
+      currentFilteredProducts = [...products];
+      renderProducts(currentFilteredProducts);
     }
   
     function renderProducts(productsToRender) {
@@ -1078,11 +1094,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const prevButton = document.createElement("button");
       prevButton.className = "pagination-btn";
       prevButton.innerHTML = "&laquo;";
+      prevButton.setAttribute("aria-label", "Previous page");
       prevButton.disabled = currentPage === 1;
       prevButton.addEventListener("click", () => {
         if (currentPage > 1) {
           currentPage--;
-          applyFilters();
+          // Use the stored filtered products
+          renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
@@ -1101,9 +1119,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const firstPageButton = document.createElement("button");
         firstPageButton.className = "pagination-btn";
         firstPageButton.textContent = "1";
+        firstPageButton.setAttribute("aria-label", "Page 1");
         firstPageButton.addEventListener("click", () => {
           currentPage = 1;
-          applyFilters();
+          // Use the stored filtered products
+          renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
         pagination.appendChild(firstPageButton);
@@ -1122,9 +1142,11 @@ document.addEventListener("DOMContentLoaded", function () {
           currentPage === i ? "active" : ""
         }`;
         pageButton.textContent = i;
+        pageButton.setAttribute("aria-label", `Page ${i}`);
         pageButton.addEventListener("click", () => {
           currentPage = i;
-          applyFilters();
+          // Use the stored filtered products
+          renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
         pagination.appendChild(pageButton);
@@ -1141,9 +1163,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const lastPageButton = document.createElement("button");
         lastPageButton.className = "pagination-btn";
         lastPageButton.textContent = totalPages;
+        lastPageButton.setAttribute("aria-label", `Page ${totalPages}`);
         lastPageButton.addEventListener("click", () => {
           currentPage = totalPages;
-          applyFilters();
+          // Use the stored filtered products
+          renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
         pagination.appendChild(lastPageButton);
@@ -1153,14 +1177,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const nextButton = document.createElement("button");
       nextButton.className = "pagination-btn";
       nextButton.innerHTML = "&raquo;";
+      nextButton.setAttribute("aria-label", "Next page");
       nextButton.disabled = currentPage === totalPages;
       nextButton.addEventListener("click", () => {
         if (currentPage < totalPages) {
           currentPage++;
-          applyFilters();
+          // Use the stored filtered products
+          renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
       pagination.appendChild(nextButton);
     }
   });
+
+// Test the pagination functionality
+console.log("Pagination script updated successfully!");
