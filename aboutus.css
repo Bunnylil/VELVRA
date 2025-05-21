@@ -1,0 +1,263 @@
+   
+      /* Additional styles specific to About Us page */
+      .about-hero {
+        background-color: #f0f0f0;
+        padding: 80px 0;
+        text-align: center;
+      }
+      
+      .about-hero h1 {
+        font-size: 3rem;
+        margin-block-end: 20px;
+        color: #2a2a2a;
+      }
+      
+      .about-hero p {
+        max-inline-size: 700px;
+        margin: 0 auto 30px;
+        color: #555;
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+      
+      .about-section {
+        padding: 80px 0;
+      }
+      
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        align-items: center;
+      }
+      
+      .about-image {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+      }
+      
+      .about-content h2 {
+        font-size: 2rem;
+        margin-block-end: 20px;
+        color: #2a2a2a;
+      }
+      
+      .about-content p {
+        margin-block-end: 20px;
+        color: #555;
+        line-height: 1.6;
+      }
+      
+      .values-section {
+        background-color: #f0f0f0;
+        padding: 80px 0;
+      }
+      
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        margin-block-start: 40px;
+      }
+      
+      .value-card {
+        background-color: #f0f0f0;
+        padding: 30px;
+        border-radius: 4px;
+        text-align: center;
+      }
+      
+
+      
+      .value-card i {
+        font-size: 2.5rem;
+        color: orange;
+        margin-block-end: 20px;
+      }
+      
+      .value-card h3 {
+        font-size: 1.5rem;
+        margin-block-end: 15px;
+        color: #2a2a2a;
+      }
+      
+      .team-section {
+        padding: 80px 0;
+      }
+      
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin-block-start: 40px;
+      }
+      
+      .team-member {
+        text-align: center;
+      }
+      
+      .team-image-container {
+        inline-size: 100%;
+        block-size: 0;
+        padding-block-end: 100%;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+        margin-block-end: 20px;
+      }
+      
+      .team-image {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+      
+      .team-member h3 {
+        font-size: 1.2rem;
+        margin-block-end: 5px;
+        color: #2a2a2a;
+      }
+      
+      .team-member p {
+        color: #555;
+        font-size: 0.9rem;
+      }
+      
+      .timeline-section {
+        background-color: #f8f8f8;
+        padding: 80px 0;
+      }
+      
+      .timeline {
+        position: relative;
+        max-inline-size: 800px;
+        margin: 40px auto 0;
+      }
+      
+      .timeline::after {
+        content: '';
+        position: absolute;
+        inline-size: 2px;
+        background-color: orange;
+        inset-block-start: 0;
+        inset-block-end: 0;
+        inset-inline-start: 50%;
+        margin-inline-start: -1px;
+      }
+      
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        inline-size: 50%;
+        box-sizing: border-box;
+      }
+      
+      .timeline-item:nth-child(odd) {
+        inset-inline-start: 0;
+      }
+      
+      .timeline-item:nth-child(even) {
+        inset-inline-start: 50%;
+      }
+      
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        inline-size: 20px;
+        block-size: 20px;
+        background-color: white;
+        border: 4px solid orange;
+        border-radius: 50%;
+        inset-block-start: 15px;
+        z-index: 1;
+      }
+      
+      .timeline-item:nth-child(odd)::after {
+        inset-inline-end: -12px;
+      }
+      
+      .timeline-item:nth-child(even)::after {
+        inset-inline-start: -12px;
+      }
+      
+      .timeline-content {
+        padding: 20px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      }
+      
+      .timeline-content h3 {
+        font-size: 1.2rem;
+        margin-block-end: 10px;
+        color: #2a2a2a;
+      }
+      
+      .timeline-content p {
+        color: #555;
+        line-height: 1.6;
+      }
+      
+      @media (max-inline-size: 992px) {
+        .about-grid,
+        .values-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        
+        .team-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .timeline::after {
+          inset-inline-start: 31px;
+        }
+        
+        .timeline-item {
+          inline-size: 100%;
+          padding-inline-start: 70px;
+          padding-inline-end: 25px;
+        }
+        
+        .timeline-item:nth-child(even) {
+          inset-inline-start: 0;
+        }
+        
+        .timeline-item::after {
+          inset-inline-start: 20px;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+          inset-inline-end: auto;
+          inset-inline-start: 20px;
+        }
+      }
+      
+      @media (max-inline-size: 768px) {
+        .about-hero h1 {
+          font-size: 2.5rem;
+        }
+        
+        .about-content h2 {
+          font-size: 1.8rem;
+        }
+      }
+      
+      @media (max-inline-size: 576px) {
+        .team-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .values-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .about-hero h1 {
+          font-size: 2rem;
+        }
+      }
