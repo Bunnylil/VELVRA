@@ -1,81 +1,77 @@
 // Initialize cart from localStorage
-let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-const FREE_SHIPPING_THRESHOLD = 200.0;
+const cartItems = JSON.parse(localStorage.getItem("cartItems")) || []
+const FREE_SHIPPING_THRESHOLD = 200.0
 
 function updateCartSummary() {
-  let subtotal = 0;
+  let subtotal = 0
 
   cartItems.forEach((item) => {
-    subtotal += item.price * item.quantity;
-  });
+    subtotal += item.price * item.quantity
+  })
 
-  const shippingOption = document.querySelector(
-    'input[name="shipping"]:checked'
-  ).value;
-  let shippingCost = 0;
+  const shippingOption = document.querySelector('input[name="shipping"]:checked').value
+  let shippingCost = 0
 
   if (shippingOption === "express") {
-    shippingCost = 15.0;
+    shippingCost = 15.0
   }
 
-  const total = subtotal + shippingCost;
+  const total = subtotal + shippingCost
 
-  document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
-  document.getElementById("total").textContent = `$${total.toFixed(2)}`;
+  document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`
+  document.getElementById("total").textContent = `$${total.toFixed(2)}`
 
-  updateProgressBar(subtotal);
+  updateProgressBar(subtotal)
 }
 
 function updateProgressBar(subtotal) {
-  const progressBar = document.getElementById("progress-bar");
-  const progressAmount = document.getElementById("progress-amount");
+  const progressBar = document.getElementById("progress-bar")
+  const progressAmount = document.getElementById("progress-amount")
 
-  const remainingAmount = FREE_SHIPPING_THRESHOLD - subtotal;
+  const remainingAmount = FREE_SHIPPING_THRESHOLD - subtotal
 
   if (remainingAmount <= 0) {
-    progressBar.style.width = "100%";
-    progressAmount.textContent = "You have free shipping!";
+    progressBar.style.width = "100%"
+    progressAmount.textContent = "You have free shipping!"
   } else {
-    const progressPercentage = (subtotal / FREE_SHIPPING_THRESHOLD) * 100;
-    progressBar.style.width = `${progressPercentage}%`;
-    progressAmount.textContent = `Shop for $${remainingAmount.toFixed(
-      2
-    )} more to enjoy FREE Shipping`;
+    const progressPercentage = (subtotal / FREE_SHIPPING_THRESHOLD) * 100
+    progressBar.style.width = `${progressPercentage}%`
+    progressAmount.textContent = `Shop for $${remainingAmount.toFixed(2)} more to enjoy FREE Shipping`
   }
 }
 
 function removeItem(index) {
-  cartItems.splice(index, 1);
-  localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  renderCartItems();
-  updateCartSummary();
+  cartItems.splice(index, 1)
+  localStorage.setItem("cartItems", JSON.stringify(cartItems))
+  renderCartItems()
+  updateCartSummary()
 }
 
 function updateQuantity(index, change) {
-  const newQuantity = cartItems[index].quantity + change;
+  const newQuantity = cartItems[index].quantity + change
   if (newQuantity > 0) {
-    cartItems[index].quantity = newQuantity;
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
-    renderCartItems();
-    updateCartSummary();
+    cartItems[index].quantity = newQuantity
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
+    renderCartItems()
+    updateCartSummary()
   }
 }
 
 function renderCartItems() {
-  const cartItemsContainer = document.getElementById("cart-items");
-  cartItemsContainer.innerHTML = "";
+  const cartItemsContainer = document.getElementById("cart-items")
+  cartItemsContainer.innerHTML = ""
 
   if (cartItems.length === 0) {
     cartItemsContainer.innerHTML = `
             <tr>
                 <td colspan="4" class="empty-cart">Your cart is empty</td>
             </tr>
-        `;
-    return;
+        `
+    return
   }
 
   cartItems.forEach((item, index) => {
-    const row = document.createElement("tr");
+    const row = document.createElement("tr")
 
     row.innerHTML = `
             <td>
@@ -98,38 +94,78 @@ function renderCartItems() {
             </td>
             <td>$${item.price.toFixed(2)}</td>
             <td>$${(item.price * item.quantity).toFixed(2)}</td>
-        `;
+        `
 
-    cartItemsContainer.appendChild(row);
-  });
+    cartItemsContainer.appendChild(row)
+  })
 }
 
 function applyCoupon() {
-  const couponCode = document.getElementById("coupon-input").value.trim();
+  const couponCode = document.getElementById("coupon-input").value.trim()
 
   if (couponCode === "DISCOUNT10") {
-    const subtotal = parseFloat(
-      document.getElementById("subtotal").textContent.replace("$", "")
-    );
-    const discount = subtotal * 0.1;
-    const discountedTotal = subtotal - discount;
-    document.getElementById("total").textContent = `$${discountedTotal.toFixed(
-      2
-    )}`;
-    alert("Coupon applied! 10% discount");
+    const subtotal = Number.parseFloat(document.getElementById("subtotal").textContent.replace("$", ""))
+    const discount = subtotal * 0.1
+    const discountedTotal = subtotal - discount
+    document.getElementById("total").textContent = `$${discountedTotal.toFixed(2)}`
+    alert("Coupon applied! 10% discount")
   } else {
-    alert("Invalid coupon code");
+    alert("Invalid coupon code")
   }
 }
 
+// Save checkout data to sessionStorage before redirecting to payment page
+function prepareCheckout() {
+  if (cartItems.length === 0) {
+    alert("Your cart is empty. Please add items before checkout.")
+    return false
+  }
+
+  // Get current values
+  const subtotal = Number.parseFloat(document.getElementById("subtotal").textContent.replace("$", ""))
+  const total = Number.parseFloat(document.getElementById("total").textContent.replace("$", ""))
+  const shippingOption = document.querySelector('input[name="shipping"]:checked').value
+  const couponInput = document.getElementById("coupon-input")
+  const couponCode = couponInput && couponInput.value ? couponInput.value.trim() : ""
+  const discount = couponCode === "DISCOUNT10" ? subtotal * 0.1 : 0
+
+  // Create checkout data object - include video URLs
+  const checkoutData = {
+    items: cartItems, // This already includes the video property
+    subtotal: subtotal,
+    total: total,
+    shipping: shippingOption,
+    couponApplied: couponCode === "DISCOUNT10",
+    couponCode: couponCode === "DISCOUNT10" ? couponCode : "",
+    discount: discount,
+  }
+
+  // Save to sessionStorage
+  sessionStorage.setItem("checkoutData", JSON.stringify(checkoutData))
+  return true
+}
+
 // Initialize the page
-document.addEventListener("DOMContentLoaded", function () {
-  renderCartItems();
-  updateCartSummary();
+document.addEventListener("DOMContentLoaded", () => {
+  renderCartItems()
+  updateCartSummary()
 
   // Add event listeners for shipping options
-  const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+  const shippingOptions = document.querySelectorAll('input[name="shipping"]')
   shippingOptions.forEach((option) => {
-    option.addEventListener("change", updateCartSummary);
-  });
-});
+    option.addEventListener("change", updateCartSummary)
+  })
+
+  // Add event listener for checkout button
+  const checkoutBtn = document.querySelector(".checkout-btn")
+  if (checkoutBtn) {
+    checkoutBtn.addEventListener("click", (e) => {
+      if (!prepareCheckout()) {
+        e.preventDefault() // Prevent navigation if checkout preparation fails
+      }
+    })
+  }
+})
+
+// Log to show the script is running
+console.log("Cart page script initialized");
