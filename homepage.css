@@ -513,16 +513,27 @@ header h1 {
   gap: 24px;
   margin-block-start: 32px;
 }
-@media (min-width: 640px) {
+@media (max-width: 480px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* Reducing the gap for better fit on small screens */
+  }
+
+  /* Make product cards more compact on mobile */
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-image {
+    block-size: 140px;
+    margin-block-end: 10px;
+  }
+
+  .product-name {
+    font-size: 11px;
   }
 }
-@media (min-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+
 
 .container3 {
   max-inline-size: 1200px;
