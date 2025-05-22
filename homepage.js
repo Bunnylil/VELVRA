@@ -200,3 +200,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
   updateTimer();
   setInterval(updateTimer, 1000);
+
+  // Existing JavaScript code...
+
+// Add this code for the footer accordion functionality
+document.addEventListener("DOMContentLoaded", () => {
+  // Footer accordion functionality for mobile
+  const accordionHeaders = document.querySelectorAll(".accordion-header")
+
+  accordionHeaders.forEach((header) => {
+    header.addEventListener("click", function () {
+      const section = this.parentElement
+      section.classList.toggle("active")
+      this.classList.toggle("active")
+    })
+  })
+})
