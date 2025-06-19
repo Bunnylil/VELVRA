@@ -37,7 +37,7 @@ function initializeProductPage(product) {
         detailsContent.innerHTML += `<p>${detail}</p>`;
     });
 
-    // Initialize size options
+    
     const sizeOptionsContainer = document.querySelector('.size-options');
     sizeOptionsContainer.innerHTML = '';
     product.sizes.forEach(size => {
@@ -46,7 +46,7 @@ function initializeProductPage(product) {
         `;
     });
 
-    // Initialize color options
+    
     const colorOptionsContainer = document.querySelector('.color-options');
     colorOptionsContainer.innerHTML = '';
     
@@ -66,7 +66,7 @@ function initializeProductPage(product) {
     if (product.videosets && product.videosets[firstColor]) {
         updateVideoThumbnails(product.videosets[firstColor]);
     } else {
-        // Fallback to default videos if none specified
+        
         const defaultVideos = [
             'videos/default1.mp4',
             'videos/default2.mp4',
@@ -257,7 +257,7 @@ function initializeSizeSelection() {
         }
     });
     
-    // Select the middle size by default (or first if only one)
+    
     const sizeOptions = document.querySelectorAll('.size-option');
     if (sizeOptions.length > 0) {
         const defaultSizeIndex = Math.floor(sizeOptions.length / 2);
@@ -265,7 +265,7 @@ function initializeSizeSelection() {
     }
 }
 
-// In the initializeCartAndFavorites function, modify the addToCartBtn click handler:
+
 function initializeCartAndFavorites() {
     const addToCartBtn = document.querySelector('.add-to-cart');
     const favoriteBtn = document.querySelector('.favorite-btn');
@@ -281,38 +281,38 @@ function initializeCartAndFavorites() {
         const price = parseFloat(priceText.replace('$', ''));
         const mainVideo = document.getElementById('mainVideo').querySelector('source').src;
         
-        // Create cart item object
+        
         const cartItem = {
             name: productName,
             color: selectedColor,
             size: selectedSize,
             price: price,
             quantity: 1,
-            video: mainVideo, // Store the video URL
-            id: productData.id || Date.now() // Use product ID or timestamp as fallback
+            video: mainVideo, 
+            id: productData.id || Date.now() 
         };
         
-        // Get existing cart items or initialize empty array
+        
         let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
         
-        // Check if item already exists in cart
+        
         const existingItemIndex = cartItems.findIndex(item => 
             item.name === cartItem.name && 
             item.color === cartItem.color && 
             item.size === cartItem.size);
         
         if (existingItemIndex >= 0) {
-            // Update quantity if item exists
+            
             cartItems[existingItemIndex].quantity += 1;
         } else {
-            // Add new item to cart
+            
             cartItems.push(cartItem);
         }
         
-        // Save to localStorage
+        
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         
-        // Visual feedback
+        
         this.classList.add('clicked');
         setTimeout(() => {
             this.classList.remove('clicked');
@@ -321,7 +321,7 @@ function initializeCartAndFavorites() {
         alert(`${productName} (${selectedColor}, size ${selectedSize}) added to cart!`);
     });
     
-    // ... rest of the favorite button code ...
+    
 
     
     favoriteBtn.addEventListener('click', function(e) {

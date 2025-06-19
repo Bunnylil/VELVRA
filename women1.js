@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Enhanced product data with all attributes needed for the product page
+   
     const products = [
       {
         id: 1,
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 95,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027445-001_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Baseball"],
         color: "black",
         colors: ["black", "white", "blue", "purple","grey","pink"],
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 45,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027446-600_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Baseball"],
         color: "Red",
         colors: ["red", "blue", "black"],
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 50,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027442-103_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Baseball"],
         color: "blue",
         colors: ["blue","grey","red","white"],
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 150,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3026920-002_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Golf"],
         color: "Black",
         colors: ["black", "white"],
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 120,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027085-001_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Golf"],
         color: "Black",
         colors: ["black", "grey"],
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 130,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028705-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Football"],
         color: "White",
         colors: ["white"],
@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 110,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028706-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Laorosse",],
         color: "White",
         colors: ["white"],
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 140,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028659-100_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Laorosse"],
         color: "White",
         colors: ["white"],
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 80,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028293-016_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Soccer"],
         color: "Black",
         colors: ["black"],
@@ -294,7 +294,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 72.97,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027707-800_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Soccer"],
         color: "Orange",
         colors: ["orange", "black"],
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 90,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028657-014_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Running"],
         color: "Grey",
         colors: ["grey", "black","orange"],
@@ -359,7 +359,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "UnderArmour",
         price: 125,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3026735-001_DEFAULT?rp=standard-30pad%7CpdpMainDesktop&scl=1&fmt=jpg&qlt=85&resMode=sharp2&cache=on%2Con&bgc=f0f0f0&wid=566&hei=708&size=536%2C688",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Outdoor"],
         color: "Black",
         colors: ["black"],
@@ -387,7 +387,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Under Armour",
         price: 60,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027524-001_DEFAULT?rp=standard-30pad%7CgridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on%2Con&bgc=F0F0F0&wid=512&hei=640&size=472%2C600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Training", "Gym"],
         color: "Black",
         colors: ["black", "grey"],
@@ -415,7 +415,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Converse",
         price: 85,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028384-101_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Casual", "Skate"],
         color: "Black",
         colors: ["black", "white", "red"],
@@ -443,7 +443,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "ASICS",
         price: 160,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027523-044_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Running"],
         color: "Blue",
         colors: ["blue", "black"],
@@ -471,7 +471,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Reebok",
         price: 75,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027767-114_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Casual", "Lifestyle"],
         color: "White",
         colors: ["white", "black"],
@@ -499,7 +499,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Vans",
         price: 75,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3028168-014_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Skate", "Casual"],
         color: "Black",
         colors: ["black", "checkerboard"],
@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Under Armour",
         price: 60,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027524-001_DEFAULT?rp=standard-30pad%7CgridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on%2Con&bgc=F0F0F0&wid=512&hei=640&size=472%2C600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Training", "Gym"],
         color: "Black",
         colors: ["black", "grey"],
@@ -560,7 +560,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Converse",
         price: 85,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027585-348_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Casual", "Skate"],
         color: "Black",
         colors: ["black", "white", "red"],
@@ -598,7 +598,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "ASICS",
         price: 160,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027205-102_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Running"],
         color: "Blue",
         colors: ["blue", "black"],
@@ -632,7 +632,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Reebok",
         price: 75,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027202-498_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Casual", "Lifestyle"],
         color: "White",
         colors: ["white", "black"],
@@ -666,7 +666,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Vans",
         price: 75,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027595-007_A?rp=standard-30pad|gridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on,on&bgc=F0F0F0&wid=512&hei=640&size=472,600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Skate", "Casual"],
         color: "Black",
         colors: ["black", "checkerboard"],
@@ -700,7 +700,7 @@ document.addEventListener("DOMContentLoaded", function () {
         brand: "Under Armour",
         price: 60,
         image: "https://underarmour.scene7.com/is/image/Underarmour/3027524-001_DEFAULT?rp=standard-30pad%7CgridTileDesktop&scl=1&fmt=jpg&qlt=50&resMode=sharp2&cache=on%2Con&bgc=F0F0F0&wid=512&hei=640&size=472%2C600",
-        gender: ["Men"],
+        gender: ["Women"],
         sport: ["Training", "Gym"],
         color: "Black",
         colors: ["black", "grey"],
@@ -732,7 +732,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const pagination = document.getElementById("pagination");
     const clearBtn = document.querySelector(".clear-btn");
   
-    // Filter elements
+  
     const sortOptions = document.querySelectorAll('input[name="sort"]');
     const genderFilters = document.querySelectorAll('input[name="gender"]');
     const sportFilters = document.querySelectorAll('input[name="sport"]');
@@ -755,13 +755,13 @@ document.addEventListener("DOMContentLoaded", function () {
       maxPrice: null,
     };
   
-    // Pagination state
+    
     const productsPerPage = 12;
     let currentPage = 1;
-    // Track the current filtered products
+    
     let currentFilteredProducts = [...products];
   
-    // Initialize with all filter sections collapsed
+   
     function initFilterSections() {
       document.querySelectorAll(".filter-options").forEach((section) => {
         section.style.display = "none";
@@ -771,22 +771,22 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   
-    // Initialize
+    
     initFilterSections();
-    applyFilters(); // Changed from renderProducts(products) to ensure we use the filtering logic
+    applyFilters(); 
     setupEventListeners();
   
     function setupEventListeners() {
-      // Sort options
+      
       sortOptions.forEach((option) => {
         option.addEventListener("change", (e) => {
           currentFilters.sort = e.target.value;
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1; 
           applyFilters();
         });
       });
   
-      // Gender filters
+      
       genderFilters.forEach((filter) => {
         filter.addEventListener("change", (e) => {
           if (e.target.checked) {
@@ -796,12 +796,12 @@ document.addEventListener("DOMContentLoaded", function () {
               (g) => g !== e.target.value
             );
           }
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1; 
           applyFilters();
         });
       });
   
-      // Sport filters
+      
       sportFilters.forEach((filter) => {
         filter.addEventListener("change", (e) => {
           if (e.target.checked) {
@@ -811,12 +811,12 @@ document.addEventListener("DOMContentLoaded", function () {
               (s) => s !== e.target.value
             );
           }
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1; 
           applyFilters();
         });
       });
   
-      // Color filters
+      
       colorFilters.forEach((filter) => {
         filter.addEventListener("change", (e) => {
           if (e.target.checked) {
@@ -826,12 +826,12 @@ document.addEventListener("DOMContentLoaded", function () {
               (c) => c !== e.target.value
             );
           }
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1; 
           applyFilters();
         });
       });
   
-      // Brand filters
+      
       brandFilters.forEach((filter) => {
         filter.addEventListener("change", (e) => {
           if (e.target.checked) {
@@ -841,12 +841,12 @@ document.addEventListener("DOMContentLoaded", function () {
               (b) => b !== e.target.value
             );
           }
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1;
           applyFilters();
         });
       });
   
-      // Size filters
+      
       sizeButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
           const size = parseInt(e.target.dataset.size);
@@ -857,12 +857,12 @@ document.addEventListener("DOMContentLoaded", function () {
             e.target.classList.add("active");
             currentFilters.sizes.push(size);
           }
-          currentPage = 1; // Reset to page 1 when filters change
+          currentPage = 1; 
           applyFilters();
         });
       });
   
-      // Price filter
+     
       priceOkBtn.addEventListener("click", () => {
         currentFilters.minPrice = minPriceInput.value
           ? parseInt(minPriceInput.value)
@@ -870,14 +870,13 @@ document.addEventListener("DOMContentLoaded", function () {
         currentFilters.maxPrice = maxPriceInput.value
           ? parseInt(maxPriceInput.value)
           : null;
-        currentPage = 1; // Reset to page 1 when filters change
+        currentPage = 1;
         applyFilters();
       });
   
-      // Clear all filters
+      
       clearBtn.addEventListener("click", clearAllFilters);
   
-      // Filter section toggles
       document.querySelectorAll(".filter-header").forEach((header) => {
         header.addEventListener("click", function () {
           const options = this.nextElementSibling;
@@ -894,50 +893,48 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       });
-      
-      // Set up pagination click handlers
-      // This is now handled in renderPagination function
+
     }
   
     function applyFilters() {
       let filteredProducts = [...products];
   
-      // Apply gender filter
+      
       if (currentFilters.genders.length > 0) {
         filteredProducts = filteredProducts.filter((product) =>
           product.gender.some((g) => currentFilters.genders.includes(g))
         );
       }
   
-      // Apply sport filter
+      
       if (currentFilters.sports.length > 0) {
         filteredProducts = filteredProducts.filter((product) =>
           product.sport.some((s) => currentFilters.sports.includes(s))
         );
       }
   
-      // Apply color filter
+      
       if (currentFilters.colors.length > 0) {
         filteredProducts = filteredProducts.filter((product) =>
           currentFilters.colors.includes(product.color)
         );
       }
   
-      // Apply brand filter
+      
       if (currentFilters.brands.length > 0) {
         filteredProducts = filteredProducts.filter((product) =>
           currentFilters.brands.includes(product.brand)
         );
       }
   
-      // Apply size filter
+     
       if (currentFilters.sizes.length > 0) {
         filteredProducts = filteredProducts.filter((product) =>
           product.sizes.some((s) => currentFilters.sizes.includes(s))
         );
       }
   
-      // Apply price filter
+      
       if (currentFilters.minPrice !== null) {
         filteredProducts = filteredProducts.filter(
           (product) => product.price >= currentFilters.minPrice
@@ -949,7 +946,7 @@ document.addEventListener("DOMContentLoaded", function () {
         );
       }
   
-      // Apply sorting
+      
       if (currentFilters.sort) {
         switch (currentFilters.sort) {
           case "price-low-high":
@@ -973,15 +970,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
   
-      // Store the current filtered products for pagination
+      
       currentFilteredProducts = filteredProducts;
   
-      // Render filtered products with pagination
+      
       renderProducts(currentFilteredProducts);
     }
   
     function clearAllFilters() {
-      // Reset filter state
+      
       currentFilters = {
         sort: null,
         genders: [],
@@ -993,44 +990,44 @@ document.addEventListener("DOMContentLoaded", function () {
         maxPrice: null,
       };
   
-      // Uncheck all checkboxes
+      
       document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
         checkbox.checked = false;
       });
   
-      // Uncheck all radio buttons
+      
       document.querySelectorAll('input[type="radio"]').forEach((radio) => {
         radio.checked = false;
       });
   
-      // Clear size selections
+      
       sizeButtons.forEach((button) => {
         button.classList.remove("active");
       });
   
-      // Clear price inputs
+     
       minPriceInput.value = "";
       maxPriceInput.value = "";
   
-      // Reset to page 1
+      
       currentPage = 1;
       
-      // Reset to original products
+      
       currentFilteredProducts = [...products];
       renderProducts(currentFilteredProducts);
     }
   
     function renderProducts(productsToRender) {
-      // Calculate pagination
+      
       const totalPages = Math.ceil(productsToRender.length / productsPerPage);
       const startIndex = (currentPage - 1) * productsPerPage;
       const endIndex = startIndex + productsPerPage;
       const paginatedProducts = productsToRender.slice(startIndex, endIndex);
   
-      // Clear existing products
+      
       productGrid.innerHTML = "";
   
-      // Render products
+    
       if (paginatedProducts.length === 0) {
         productGrid.innerHTML =
           '<div class="no-results">No products match your filters.</div>';
@@ -1070,7 +1067,7 @@ document.addEventListener("DOMContentLoaded", function () {
           productGrid.appendChild(productCard);
         });
   
-        // Add click handlers to product links
+       
         document.querySelectorAll('.product-link').forEach(link => {
           link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -1081,7 +1078,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       }
   
-      // Render pagination
+     
       renderPagination(totalPages);
     }
   
@@ -1090,7 +1087,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
       if (totalPages <= 1) return;
   
-      // Previous button
+     
       const prevButton = document.createElement("button");
       prevButton.className = "pagination-btn";
       prevButton.innerHTML = "&laquo;";
@@ -1099,14 +1096,14 @@ document.addEventListener("DOMContentLoaded", function () {
       prevButton.addEventListener("click", () => {
         if (currentPage > 1) {
           currentPage--;
-          // Use the stored filtered products
+        
           renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
       });
       pagination.appendChild(prevButton);
   
-      // Page numbers
+     
       const maxVisiblePages = 5;
       let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
       let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
@@ -1122,7 +1119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         firstPageButton.setAttribute("aria-label", "Page 1");
         firstPageButton.addEventListener("click", () => {
           currentPage = 1;
-          // Use the stored filtered products
+          
           renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
@@ -1145,7 +1142,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pageButton.setAttribute("aria-label", `Page ${i}`);
         pageButton.addEventListener("click", () => {
           currentPage = i;
-          // Use the stored filtered products
+          
           renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
@@ -1166,14 +1163,14 @@ document.addEventListener("DOMContentLoaded", function () {
         lastPageButton.setAttribute("aria-label", `Page ${totalPages}`);
         lastPageButton.addEventListener("click", () => {
           currentPage = totalPages;
-          // Use the stored filtered products
+          
           renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
         pagination.appendChild(lastPageButton);
       }
   
-      // Next button
+      
       const nextButton = document.createElement("button");
       nextButton.className = "pagination-btn";
       nextButton.innerHTML = "&raquo;";
@@ -1182,7 +1179,7 @@ document.addEventListener("DOMContentLoaded", function () {
       nextButton.addEventListener("click", () => {
         if (currentPage < totalPages) {
           currentPage++;
-          // Use the stored filtered products
+          
           renderProducts(currentFilteredProducts);
           window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -1191,17 +1188,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-// Test the pagination functionality
+
 console.log("Pagination script updated successfully!");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Menu toggle functionality
+  
   const menuToggle = document.querySelector(".menu-toggle")
   const navMenu = document.querySelector(".nav-menu")
   const userDropdown = document.querySelector(".user-dropdown")
   const userContainer = document.querySelector(".user-container")
 
-  // Toggle menu when menu button is clicked
+  
   if (menuToggle && navMenu) {
     menuToggle.addEventListener("click", function () {
       navMenu.classList.toggle("active")
@@ -1209,14 +1206,14 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Toggle user dropdown when user icon is clicked
+  
   if (userContainer && userDropdown) {
     userContainer.addEventListener("click", function (e) {
       e.preventDefault()
       userDropdown.classList.toggle("active")
       this.setAttribute("aria-expanded", userDropdown.classList.contains("active"))
 
-      // Close dropdown when clicking outside
+      
       document.addEventListener("click", (event) => {
         if (!userDropdown.contains(event.target) && !userContainer.contains(event.target)) {
           userDropdown.classList.remove("active")
@@ -1226,7 +1223,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
-  // Close menu when clicking outside on mobile
+ 
   document.addEventListener("click", (event) => {
     if (
       navMenu &&

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const resetBtn = document.getElementById('reset-btn');
     const emailInput = document.getElementById('email');
 
-    // Email validation function
+    
     function validateEmail(email) {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return emailPattern.test(email);
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const email = emailInput.value.trim();
         
-        // Validate email format first
+        
         if (!validateEmail(email)) {
             alert("Please enter a valid email address.");
             return;
@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            // Store the reset code and email in session storage
+            
             sessionStorage.setItem('resetCode', data.resetCode);
             sessionStorage.setItem('resetEmail', data.email);
 
-            // Redirect to verification page
+            
             window.location.href = 'verifycode.html';
             
         } catch (error) {

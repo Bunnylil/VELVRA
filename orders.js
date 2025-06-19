@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // Get checkout data from sessionStorage
+  
   const checkoutData = JSON.parse(sessionStorage.getItem('checkoutData')) || {};
   const cartItems = checkoutData.items || [];
   const total = checkoutData.total || 0;
   
-  // Payment method functionality
+  
   const paymentMethods = {
     mastercard: {
       name: "Mastercard",
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
 
-  // Initialize payment method selection
+  
   const paymentMethodElements = document.querySelectorAll('.payment-method');
   const paymentContentElement = document.getElementById('paymentContent');
 
@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // Update the order details table
+  
   const tbody = document.querySelector('.order-details tbody');
-  tbody.innerHTML = ''; // Clear existing rows
+  tbody.innerHTML = ''; 
   
   cartItems.forEach(item => {
     const row = document.createElement('tr');
@@ -51,10 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
     tbody.appendChild(row);
   });
   
-  // Update the total price from cart summary
+  
   document.querySelector('.total-price .price').textContent = `$ ${total.toFixed(2)}`;
 
-  // Carousel functionality
+  
   const toggleCarouselBtn = document.getElementById('toggleCarousel');
   const carouselSide = document.getElementById('carouselSide');
   const mainContainer = document.getElementById('mainContainer');
@@ -64,17 +64,17 @@ document.addEventListener('DOMContentLoaded', function() {
   let currentItem = 0;
   let carouselInterval;
 
-  // Initialize carousel with product videos
+  
   function initializeCarousel() {
-    carouselContainer.innerHTML = ''; // Clear existing items
-    dotsContainer.innerHTML = ''; // Clear existing dots
+    carouselContainer.innerHTML = ''; 
+    dotsContainer.innerHTML = ''; 
 
     cartItems.forEach((item, index) => {
-      // Create carousel item with video instead of image
+      
       const carouselItem = document.createElement('div');
       carouselItem.className = `carousel-item ${index === 0 ? 'active' : ''}`;
       
-      // Check if item has video property and use it
+      
       if (item.video) {
         carouselItem.innerHTML = `
           <video autoplay loop muted playsinline class="carousel-image">
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
           </div>
         `;
       } else if (item.image) {
-        // Fallback to image if no video is available
+        
         carouselItem.innerHTML = `
           <img src="${item.image}" alt="${item.name}" class="carousel-image">
           <div class="item-details">
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       carouselContainer.appendChild(carouselItem);
 
-      // Create dot
+      
       const dot = document.createElement('button');
       dot.className = `carousel-dot ${index === 0 ? 'active' : ''}`;
       dot.dataset.index = index;
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function() {
       dotsContainer.appendChild(dot);
     });
 
-    // If no items were added (empty cart), add a placeholder
+    
     if (cartItems.length === 0) {
       const placeholderItem = document.createElement('div');
       placeholderItem.className = 'carousel-item active';
@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
       carouselContainer.appendChild(placeholderItem);
     }
 
-    // Get references to the newly created elements
+    
     const carouselItems = document.querySelectorAll('.carousel-item');
     const carouselDots = document.querySelectorAll('.carousel-dot');
 
@@ -154,12 +154,12 @@ document.addEventListener('DOMContentLoaded', function() {
       clearInterval(carouselInterval);
     }
 
-    // Initialize first item
+    
     if (carouselItems.length > 0) {
       showItem(0);
     }
 
-    // Toggle carousel visibility
+    
     toggleCarouselBtn.addEventListener('click', () => {
       const isVisible = carouselSide.style.display !== 'none';
       
@@ -176,15 +176,14 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
 
-    // Start carousel if images are visible by default
     if (carouselSide.style.display !== 'none') {
       startCarousel();
     }
   }
 
-  // Initialize the carousel
+ 
   initializeCarousel();
 });
 
-// Log to show the script is running
+
 console.log("Orders page script initialized");

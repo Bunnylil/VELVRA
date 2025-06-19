@@ -42,7 +42,6 @@ button {
   padding: 0 15px;
 }
 
-/* Fix for top-bar2 class to ensure it displays properly */
 .top-bar2 {
   display: flex;
   align-items: center;

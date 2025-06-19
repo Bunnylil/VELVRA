@@ -81,8 +81,7 @@
           <button class="clear-btn" aria-label="Clear all filters">Clear all</button>
         </div>
 
-        <!-- Filter Sections Start -->
-        <!-- Sort Section -->
+        
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="false" aria-controls="sort-options">
             <h3>Sort</h3>
@@ -98,7 +97,7 @@
           </div>
         </div>
 
-        <!-- Gender Section -->
+        
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="false" aria-controls="gender-options">
             <h3>Gender</h3>
@@ -111,7 +110,7 @@
           </div>
         </div>
 
-        <!-- Sports Section -->
+       
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="false" aria-controls="sports-options">
             <h3>Sports</h3>
@@ -132,7 +131,7 @@
           </div>
         </div>
 
-        <!-- Color Section -->
+        
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="false" aria-controls="color-options">
             <h3>Color</h3>
@@ -149,7 +148,7 @@
           </div>
         </div>
 
-        <!-- Price Section -->
+        
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="true" aria-controls="price-options">
             <h3>Price</h3>
@@ -165,20 +164,18 @@
           </div>
         </div>
 
-        <!-- Size Section -->
+        
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="true" aria-controls="size-options">
             <h3>Size</h3>
             <span class="toggle-icon">-</span>
           </div>
           <div class="filter-options size-grid" id="size-options">
-            <!-- Size buttons -->
-            <!-- (36 to 45) -->
+            
             ${[36, 37, 38, 39, 40, 41, 42, 43, 44, 45].map(size => `<button type="button" class="size-btn" data-size="${size}" aria-label="Size ${size}">${size}</button>`).join('')}
           </div>
         </div>
 
-        <!-- Brand Section -->
         <div class="filter-section">
           <div class="filter-header" tabindex="0" role="button" aria-expanded="false" aria-controls="brand-options">
             <h3>Brand</h3>
@@ -193,12 +190,12 @@
             <label class="filter-option"><input type="checkbox" name="brand" value="Asics"><span>Asics</span></label>
           </div>
         </div>
-        <!-- Filter Sections End -->
+        
       </aside>
 
       <main class="products-container">
         <div class="product-grid" id="product-grid">
-          <!-- Products will load dynamically -->
+          
         </div>
         <div class="pagination" id="pagination">
           

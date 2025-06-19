@@ -42,7 +42,6 @@ button {
   padding: 0 15px;
 }
 
-/* Fix for top-bar2 class to ensure it displays properly */
 .top-bar2 {
   display: flex;
   align-items: center;
@@ -616,4 +615,46 @@ button {
     font-size: 13px;
     padding: 0 10px;
   }
+}
+
+.container {
+  inline-size: 100%;
+  max-inline-size: 1440px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.top-bar {
+  background-color: #f1f2f4;
+  color: #000;
+  padding: 8px 0;
+  font-size: 12px;
+  inline-size: 100%;
+  position: relative;
+  z-index: 1000;
+  border-block-end: 1px solid #e0e0e0;
+}
+
+.promo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.promo i {
+  font-size: 14px;
+  color: black;
+}
+
+.shop-link {
+  color: orange;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.shop-link:hover {
+  color: green;
+  text-decoration: underline;
 }

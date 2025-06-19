@@ -150,16 +150,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   colorOptions.forEach(option => {
     option.addEventListener('click', () => {
-      // Remove 'selected' class from all
+      
       colorOptions.forEach(opt => opt.classList.remove('selected'));
 
-      // Add 'selected' to clicked
+      
       option.classList.add('selected');
 
-      // Get the color
+      
       const color = option.getAttribute('data-color');
 
-      // Change the video source
+      
       const newSrc = videoMap[color];
       videoSource.setAttribute('src', newSrc);
       video.load();
@@ -167,11 +167,11 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const TIMER_KEY = "offerEndTime";
-  const DEFAULT_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+  const DEFAULT_DURATION = 24 * 60 * 60 * 1000; 
 
   const timerElement = document.getElementById("discountTimer");
 
-  // Check if we already have a saved end time
+  
   let offerEndTime = localStorage.getItem(TIMER_KEY);
 
   if (!offerEndTime) {

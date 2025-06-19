@@ -266,7 +266,7 @@
     max-height: 55vh;
     object-fit: cover;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Smoother transition */
+    transition: opacity 0.5s ease-in-out; 
   }
   
   .home-image video.fade-out {
@@ -661,7 +661,7 @@
   }
   
   .product-image:hover img {
-    transform: scale(1.05); /* Slightly enlarges the image */
+    transform: scale(1.05); 
   }
   
   .product-info {

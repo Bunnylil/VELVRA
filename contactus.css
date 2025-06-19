@@ -1,4 +1,4 @@
-/* Additional styles specific to Contact Us page */
+
  .container {
     max-inline-size: 1200px;
     margin: 0 auto;
@@ -33,7 +33,7 @@ a {
     color: inherit;
 }
 
-/* Contact Section */
+
 .contact-section {
     padding: 60px 0;
 }
@@ -44,7 +44,7 @@ a {
     gap: 30px;
 }
 
-/* Contact Form */
+
 .contact-form {
     flex: 1;
     min-inline-size: 300px;
@@ -120,7 +120,7 @@ textarea {
     background-color: #333;
 }
 
-/* Contact Info */
+
 .contact-info {
     flex: 1;
     min-inline-size: 300px;
@@ -141,14 +141,14 @@ textarea {
     font-weight: 500;
 }
 
-/* Map Section */
+
 .map-section {
     margin: 40px auto;
     max-inline-size: 1200px;
     padding: 0 20px;
 }
 
-/* FAQ Section */
+
 .faq-section {
     padding: 60px 20px;
     max-inline-size: 1200px;
@@ -200,7 +200,7 @@ textarea {
 .accordion-header i {
     color: #666;
 }
-/* FAQ Section Styles */
+
 .faq-section {
   padding: 60px 20px;
   max-inline-size: 1200px;
@@ -292,7 +292,7 @@ textarea {
 
 .accordion-item.active .accordion-content {
   padding: 20px;
-  max-block-size: 500px; /* Adjust based on your content */
+  max-block-size: 500px; 
 }
 
 .accordion-item.active {
@@ -327,7 +327,7 @@ textarea {
   text-decoration: underline;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 768px) {
   .faq-content {
     grid-template-columns: 1fr;

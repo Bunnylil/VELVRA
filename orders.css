@@ -266,7 +266,7 @@ button {
   max-block-size: 55vh;
   object-fit: cover;
   opacity: 1;
-  transition: opacity 0.5s ease-in-out; /* Smoother transition */
+  transition: opacity 0.5s ease-in-out; 
 }
 
 .home-image video.fade-out {
@@ -838,7 +838,7 @@ td {
     margin-block-end: 30px;
   }
 }
-/* Add these styles to your existing orders.css file */
+
 
 .carousel-item video {
   inline-size: 100%;

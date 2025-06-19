@@ -25,15 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
     return emailPattern.test(email);
   }
 
-  // Function to save user data to localStorage
+  
   function saveUserToLocalStorage(userData) {
-    // Save current user data
+    
     localStorage.setItem("currentUser", JSON.stringify(userData));
     
-    // Add to users array for multiple users
+    
     const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
     
-    // Check if user with this email already exists
+    
     const userExists = existingUsers.some(user => user.email === userData.email);
     
     if (!userExists) {
@@ -83,16 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
           email: user.email,
           countryCode: "",
           phone: user.phoneNumber || "",
-          password: "", // No password for Google sign-in
+          password: "", 
           signupMethod: "google",
           createdAt: new Date().toISOString(),
           lastLogin: new Date().toISOString()
         };
 
-        // Save to localStorage
+        
         saveUserToLocalStorage(userData);
 
-        // Optional: Still try to send to backend if it exists
+        
         try {
           const response = await fetch("http://localhost:5000/signup", {
             method: "POST",
@@ -100,13 +100,13 @@ document.addEventListener("DOMContentLoaded", () => {
             body: JSON.stringify(userData),
           });
           
-          // If backend is available, process its response
+          
           if (response.ok) {
             const data = await response.json();
             console.log("Backend response:", data);
           }
         } catch (backendError) {
-          // Backend not available, continue with localStorage only
+         
           console.log("Backend not available, using localStorage only");
         }
 
@@ -169,16 +169,16 @@ document.addEventListener("DOMContentLoaded", () => {
         email,
         countryCode,
         phone,
-        password, // In a real app, you should never store plain text passwords
+        password, 
         signupMethod: "manual",
         createdAt: new Date().toISOString(),
         lastLogin: new Date().toISOString()
       };
 
-      // Save to localStorage
+      
       saveUserToLocalStorage(userData);
 
-      // Optional: Still try to send to backend if it exists
+      
       try {
         const response = await fetch("http://localhost:5000/signup", {
           method: "POST",
@@ -186,13 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
           body: JSON.stringify(userData),
         });
         
-        // If backend is available, process its response
+        
         if (response.ok) {
           const data = await response.json();
           console.log("Backend response:", data);
         }
       } catch (error) {
-        // Backend not available, continue with localStorage only
+        
         console.log("Backend not available, using localStorage only");
       }
 
@@ -201,12 +201,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Check if user is already logged in
+  
   const currentUser = localStorage.getItem("currentUser");
   if (currentUser) {
     const userData = JSON.parse(currentUser);
     console.log("User already logged in:", userData);
-    // You can redirect or show a message here
+    
   }
 });
 

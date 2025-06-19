@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all accordion items in the FAQ section
+  
   const accordionItems = document.querySelectorAll(".accordion-item")
 
-  // Initialize the accordion items
+ 
   accordionItems.forEach((item) => {
-    // Create content container for each accordion item if it doesn't exist
+    
     if (!item.querySelector(".accordion-content")) {
       const contentDiv = document.createElement("div")
       contentDiv.className = "accordion-content"
 
-      // Add appropriate content based on the header text
+      
       const headerText = item.querySelector(".accordion-header h3").textContent
 
       switch (headerText) {
@@ -73,17 +73,17 @@ document.addEventListener("DOMContentLoaded", () => {
           contentDiv.innerHTML = `<p>More information will be provided soon.</p>`
       }
 
-      // Append the content div to the accordion item
+      
       item.appendChild(contentDiv)
     }
 
-    // Add click event listener to the header
+    
     const header = item.querySelector(".accordion-header")
     header.addEventListener("click", () => {
-      // Toggle active class on the clicked item
+      
       const isActive = item.classList.toggle("active")
 
-      // Change the icon from plus to minus or vice versa
+      
       const icon = header.querySelector("i")
       if (isActive) {
         icon.classList.remove("fa-plus")
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.classList.add("fa-plus")
       }
 
-      // Close other accordion items
+      
       accordionItems.forEach((otherItem) => {
         if (otherItem !== item && otherItem.classList.contains("active")) {
           otherItem.classList.remove("active")
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 })
 
-      // Simple script to handle FAQ accordion functionality
+      
       document.addEventListener('DOMContentLoaded', function() {
         const faqItems = document.querySelectorAll('.faq-item');
         
@@ -114,10 +114,10 @@ document.addEventListener("DOMContentLoaded", () => {
           const question = item.querySelector('.faq-question');
           
           question.addEventListener('click', () => {
-            // Toggle active class on the clicked item
+            
             item.classList.toggle('active');
             
-            // Close other items
+            
             faqItems.forEach(otherItem => {
               if (otherItem !== item) {
                 otherItem.classList.remove('active');

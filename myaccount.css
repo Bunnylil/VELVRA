@@ -266,7 +266,7 @@
     max-height: 55vh;
     object-fit: cover;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out; /* Smoother transition */
+    transition: opacity 0.5s ease-in-out; 
   }
   
   .home-image video.fade-out {
@@ -663,13 +663,13 @@
     .container4 {
       padding: 20px;
       margin-top: 50px;
-      flex-direction: column; /* Stack items vertically */
+      flex-direction: column; 
     }
   
     .image-left,
     .image-right {
-      margin: 20px 0; /* Adjust margin for stacked layout */
-      max-width: 150px; /* Reduce image size for smaller screens */
+      margin: 20px 0; 
+      max-width: 150px; 
     }
   
     .text-content {
@@ -677,31 +677,31 @@
     }
   
     .input-group {
-      max-width: 100%; /* Allow input to take full width */
+      max-width: 100%; 
     }
   }
   
   @media (max-width: 480px) {
     .text-content h2 {
-      font-size: 20px; /* Reduce heading size */
+      font-size: 20px; 
     }
   
     .text-content p {
-      font-size: 14px; /* Reduce paragraph text size */
+      font-size: 14px; 
     }
   
     input[type="email"] {
-      padding: 8px 8px 8px 35px; /* Adjust padding */
-      font-size: 12px; /* Reduce font size */
+      padding: 8px 8px 8px 35px; 
+      font-size: 12px; 
     }
   
     .email-icon {
-      font-size: 16px; /* Reduce icon size */
-      left: 8px; /* Adjust position */
+      font-size: 16px; 
+      left: 8px;
     }
   
     .signup-text {
-      font-size: 14px; /* Reduce text size */
+      font-size: 14px; 
     }
   }
   

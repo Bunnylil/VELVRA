@@ -395,7 +395,7 @@
   
 
 
-/* Payment Page Styles */
+
 .container2 {
   max-inline-size: 1200px;
   margin: 30px auto;
@@ -419,7 +419,7 @@
   padding: 30px;
 }
 
-/* Enhanced Carousel Styles */
+
 .carousel {
 position: relative;
 inline-size: 100%;
@@ -448,9 +448,9 @@ display: none;
 .carousel-item img {
 inline-size: 100%;
 block-size: 100%;
-object-fit: contain; /* Changed from 'cover' to 'contain' */
-background-color: #f0f0f0; /* Added white background for transparent images */
-padding: 20px; /* Added padding around images */
+object-fit: contain; 
+background-color: #f0f0f0; 
+padding: 20px; 
 }
 
 .carousel-caption {
@@ -498,7 +498,7 @@ cursor: pointer;
 background-color: orange;
 }
 
-/* Navigation arrows */
+
 .carousel-nav {
 position: absolute;
 inset-block-start: 50%;
@@ -705,7 +705,7 @@ transform: scale(1.1);
   background-color: #333;
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
   .top-bar {
     padding: 15px;
@@ -929,7 +929,7 @@ transform: scale(1.1);
   color: #666;
 }
 
-/* Add these styles to your existing CSS */
+
 
 .carousel-video {
   inline-size: 100%;
